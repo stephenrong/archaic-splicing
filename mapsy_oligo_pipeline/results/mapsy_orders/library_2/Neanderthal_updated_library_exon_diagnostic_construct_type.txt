@@ -1,0 +1,7 @@
+construct_type	variants_wt_mt	length_unique_wt	length_unique_mt	length_unique_wt_mt
+long_half_exon_variant_five	8622	7605	7819	15424
+long_half_exon_variant_three	8652	7373	7590	14963
+short_full_exon_variant_five	4246	3995	4201	8196
+short_full_exon_variant_three	4246	3740	3933	7673
+short_half_exon_variant_five	2673	2545	2640	5185
+short_half_exon_variant_three	2707	2423	2512	4935

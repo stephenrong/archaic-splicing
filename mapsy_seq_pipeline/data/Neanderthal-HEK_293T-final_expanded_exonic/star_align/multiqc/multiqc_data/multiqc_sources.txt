@@ -1,0 +1,13 @@
+Module	Section	Sample Name	Source
+STAR	SummaryLog	N2A-input-a_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2A-input-a_001.Log.final.out
+STAR	SummaryLog	N2A-input-b_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2A-input-b_001.Log.final.out
+STAR	SummaryLog	N2A-input-c_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2A-input-c_001.Log.final.out
+STAR	SummaryLog	N2A-output-a_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2A-output-a_001.Log.final.out
+STAR	SummaryLog	N2A-output-b_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2A-output-b_001.Log.final.out
+STAR	SummaryLog	N2A-output-c_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2A-output-c_001.Log.final.out
+STAR	SummaryLog	N2B-input-a_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2B-input-a_001.Log.final.out
+STAR	SummaryLog	N2B-input-b_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2B-input-b_001.Log.final.out
+STAR	SummaryLog	N2B-input-c_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2B-input-c_001.Log.final.out
+STAR	SummaryLog	N2B-output-a_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2B-output-a_001.Log.final.out
+STAR	SummaryLog	N2B-output-b_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2B-output-b_001.Log.final.out
+STAR	SummaryLog	N2B-output-c_001	/scratch/srong/final-postmapsy-archaic-EndToEnd/data/Neanderthal-HEK_293T-final_expanded_exonic/star_align/N2B-output-c_001.Log.final.out

@@ -1,0 +1,150 @@
+[2021-03-31 00:16:18,863] multiqc                                            [DEBUG  ]  No MultiQC config found: /usr/local/lib/python2.7/dist-packages/multiqc_config.yaml
+[2021-03-31 00:16:18,863] multiqc                                            [DEBUG  ]  No MultiQC config found: /home/srong/.multiqc_config.yaml
+[2021-03-31 00:16:18,863] multiqc                                            [DEBUG  ]  No MultiQC config found: multiqc_config.yaml
+[2021-03-31 00:16:18,863] multiqc                                            [DEBUG  ]  Command used: /usr/local/bin/multiqc ./fastqc/N2A-input-a_R1_001_fastqc.html ./fastqc/N2A-input-a_R1_001_fastqc.zip ./fastqc/N2A-input-a_R2_001_fastqc.html ./fastqc/N2A-input-a_R2_001_fastqc.zip ./fastqc/N2A-input-b_R1_001_fastqc.html ./fastqc/N2A-input-b_R1_001_fastqc.zip ./fastqc/N2A-input-b_R2_001_fastqc.html ./fastqc/N2A-input-b_R2_001_fastqc.zip ./fastqc/N2A-input-c_R1_001_fastqc.html ./fastqc/N2A-input-c_R1_001_fastqc.zip ./fastqc/N2A-input-c_R2_001_fastqc.html ./fastqc/N2A-input-c_R2_001_fastqc.zip ./fastqc/N2A-output-a_R1_001_fastqc.html ./fastqc/N2A-output-a_R1_001_fastqc.zip ./fastqc/N2A-output-a_R2_001_fastqc.html ./fastqc/N2A-output-a_R2_001_fastqc.zip ./fastqc/N2A-output-b_R1_001_fastqc.html ./fastqc/N2A-output-b_R1_001_fastqc.zip ./fastqc/N2A-output-b_R2_001_fastqc.html ./fastqc/N2A-output-b_R2_001_fastqc.zip ./fastqc/N2A-output-c_R1_001_fastqc.html ./fastqc/N2A-output-c_R1_001_fastqc.zip ./fastqc/N2A-output-c_R2_001_fastqc.html ./fastqc/N2A-output-c_R2_001_fastqc.zip ./fastqc/N2B-input-a_R1_001_fastqc.html ./fastqc/N2B-input-a_R1_001_fastqc.zip ./fastqc/N2B-input-a_R2_001_fastqc.html ./fastqc/N2B-input-a_R2_001_fastqc.zip ./fastqc/N2B-input-b_R1_001_fastqc.html ./fastqc/N2B-input-b_R1_001_fastqc.zip ./fastqc/N2B-input-b_R2_001_fastqc.html ./fastqc/N2B-input-b_R2_001_fastqc.zip ./fastqc/N2B-input-c_R1_001_fastqc.html ./fastqc/N2B-input-c_R1_001_fastqc.zip ./fastqc/N2B-input-c_R2_001_fastqc.html ./fastqc/N2B-input-c_R2_001_fastqc.zip ./fastqc/N2B-output-a_R1_001_fastqc.html ./fastqc/N2B-output-a_R1_001_fastqc.zip ./fastqc/N2B-output-a_R2_001_fastqc.html ./fastqc/N2B-output-a_R2_001_fastqc.zip ./fastqc/N2B-output-b_R1_001_fastqc.html ./fastqc/N2B-output-b_R1_001_fastqc.zip ./fastqc/N2B-output-b_R2_001_fastqc.html ./fastqc/N2B-output-b_R2_001_fastqc.zip ./fastqc/N2B-output-c_R1_001_fastqc.html ./fastqc/N2B-output-c_R1_001_fastqc.zip ./fastqc/N2B-output-c_R2_001_fastqc.html ./fastqc/N2B-output-c_R2_001_fastqc.zip -o ./fastqc/multiqc/ -f
+[2021-03-31 00:16:19,669] multiqc                                            [WARNING]  MultiQC Version v1.10 now available!
+[2021-03-31 00:16:19,669] multiqc                                            [INFO   ]  This is MultiQC v1.3
+[2021-03-31 00:16:19,669] multiqc                                            [DEBUG  ]  Command     : /usr/local/bin/multiqc ./fastqc/N2A-input-a_R1_001_fastqc.html ./fastqc/N2A-input-a_R1_001_fastqc.zip ./fastqc/N2A-input-a_R2_001_fastqc.html ./fastqc/N2A-input-a_R2_001_fastqc.zip ./fastqc/N2A-input-b_R1_001_fastqc.html ./fastqc/N2A-input-b_R1_001_fastqc.zip ./fastqc/N2A-input-b_R2_001_fastqc.html ./fastqc/N2A-input-b_R2_001_fastqc.zip ./fastqc/N2A-input-c_R1_001_fastqc.html ./fastqc/N2A-input-c_R1_001_fastqc.zip ./fastqc/N2A-input-c_R2_001_fastqc.html ./fastqc/N2A-input-c_R2_001_fastqc.zip ./fastqc/N2A-output-a_R1_001_fastqc.html ./fastqc/N2A-output-a_R1_001_fastqc.zip ./fastqc/N2A-output-a_R2_001_fastqc.html ./fastqc/N2A-output-a_R2_001_fastqc.zip ./fastqc/N2A-output-b_R1_001_fastqc.html ./fastqc/N2A-output-b_R1_001_fastqc.zip ./fastqc/N2A-output-b_R2_001_fastqc.html ./fastqc/N2A-output-b_R2_001_fastqc.zip ./fastqc/N2A-output-c_R1_001_fastqc.html ./fastqc/N2A-output-c_R1_001_fastqc.zip ./fastqc/N2A-output-c_R2_001_fastqc.html ./fastqc/N2A-output-c_R2_001_fastqc.zip ./fastqc/N2B-input-a_R1_001_fastqc.html ./fastqc/N2B-input-a_R1_001_fastqc.zip ./fastqc/N2B-input-a_R2_001_fastqc.html ./fastqc/N2B-input-a_R2_001_fastqc.zip ./fastqc/N2B-input-b_R1_001_fastqc.html ./fastqc/N2B-input-b_R1_001_fastqc.zip ./fastqc/N2B-input-b_R2_001_fastqc.html ./fastqc/N2B-input-b_R2_001_fastqc.zip ./fastqc/N2B-input-c_R1_001_fastqc.html ./fastqc/N2B-input-c_R1_001_fastqc.zip ./fastqc/N2B-input-c_R2_001_fastqc.html ./fastqc/N2B-input-c_R2_001_fastqc.zip ./fastqc/N2B-output-a_R1_001_fastqc.html ./fastqc/N2B-output-a_R1_001_fastqc.zip ./fastqc/N2B-output-a_R2_001_fastqc.html ./fastqc/N2B-output-a_R2_001_fastqc.zip ./fastqc/N2B-output-b_R1_001_fastqc.html ./fastqc/N2B-output-b_R1_001_fastqc.zip ./fastqc/N2B-output-b_R2_001_fastqc.html ./fastqc/N2B-output-b_R2_001_fastqc.zip ./fastqc/N2B-output-c_R1_001_fastqc.html ./fastqc/N2B-output-c_R1_001_fastqc.zip ./fastqc/N2B-output-c_R2_001_fastqc.html ./fastqc/N2B-output-c_R2_001_fastqc.zip -o ./fastqc/multiqc/ -f
+[2021-03-31 00:16:19,669] multiqc                                            [DEBUG  ]  Working dir : /datasets2/lab_sequencing/Stephen_Chris_experiments/Neanderthal_mapsy_experiments/Neanderthal-HEK_293T-final_expanded_exonic
+[2021-03-31 00:16:19,669] multiqc                                            [INFO   ]  Template    : default
+[2021-03-31 00:16:19,670] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-a_R1_001_fastqc.html'
+[2021-03-31 00:16:19,670] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-a_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,670] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-a_R2_001_fastqc.html'
+[2021-03-31 00:16:19,670] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-a_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,670] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-b_R1_001_fastqc.html'
+[2021-03-31 00:16:19,670] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-b_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-b_R2_001_fastqc.html'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-b_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-c_R1_001_fastqc.html'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-c_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-c_R2_001_fastqc.html'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-input-c_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,671] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-a_R1_001_fastqc.html'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-a_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-a_R2_001_fastqc.html'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-a_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-b_R1_001_fastqc.html'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-b_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-b_R2_001_fastqc.html'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-b_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,672] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-c_R1_001_fastqc.html'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-c_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-c_R2_001_fastqc.html'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2A-output-c_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-a_R1_001_fastqc.html'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-a_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-a_R2_001_fastqc.html'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-a_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,673] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-b_R1_001_fastqc.html'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-b_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-b_R2_001_fastqc.html'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-b_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-c_R1_001_fastqc.html'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-c_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-c_R2_001_fastqc.html'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-input-c_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,674] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-a_R1_001_fastqc.html'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-a_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-a_R2_001_fastqc.html'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-a_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-b_R1_001_fastqc.html'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-b_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-b_R2_001_fastqc.html'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-b_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,675] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-c_R1_001_fastqc.html'
+[2021-03-31 00:16:19,676] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-c_R1_001_fastqc.zip'
+[2021-03-31 00:16:19,676] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-c_R2_001_fastqc.html'
+[2021-03-31 00:16:19,676] multiqc                                            [INFO   ]  Searching './fastqc/N2B-output-c_R2_001_fastqc.zip'
+[2021-03-31 00:16:19,676] multiqc                                            [DEBUG  ]  Analysing modules: afterqc, custom_content, conpair, peddy, methylQA, qualimap, preseq, quast, qorts, rna_seqc, rsem, rseqc, busco, goleft_indexcov, disambiguate, supernova, deeptools, homer, macs2, theta2, snpeff, gatk, htseq, bcftools, featureCounts, picard, prokka, samblaster, samtools, bamtools, jellyfish, vcftools, bbmap, bismark, hicexplorer, hicup, salmon, kallisto, slamdunk, star, hisat2, tophat, bowtie2, bowtie1, leehom, adapterRemoval, cutadapt, flexbar, trimmomatic, skewer, sortmerna, biobloomtools, fastq_screen, fastqc, clusterflow, bcl2fastq, interop
+[2021-03-31 00:16:19,677] multiqc                                            [DEBUG  ]  Using temporary directory for creating report: /tmp/tmpSOEYgW
+[2021-03-31 00:16:19,743] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-input-a_R1_001_fastqc.html
+[2021-03-31 00:16:19,755] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-input-a_R2_001_fastqc.html
+[2021-03-31 00:16:19,756] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-input-b_R1_001_fastqc.html
+[2021-03-31 00:16:19,757] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-input-b_R2_001_fastqc.html
+[2021-03-31 00:16:19,758] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-input-c_R1_001_fastqc.html
+[2021-03-31 00:16:19,759] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-input-c_R2_001_fastqc.html
+[2021-03-31 00:16:19,760] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-output-a_R1_001_fastqc.html
+[2021-03-31 00:16:19,761] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-output-a_R2_001_fastqc.html
+[2021-03-31 00:16:19,762] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-output-b_R1_001_fastqc.html
+[2021-03-31 00:16:19,762] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-output-b_R2_001_fastqc.html
+[2021-03-31 00:16:19,763] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-output-c_R1_001_fastqc.html
+[2021-03-31 00:16:19,764] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2A-output-c_R2_001_fastqc.html
+[2021-03-31 00:16:19,765] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-input-a_R1_001_fastqc.html
+[2021-03-31 00:16:19,766] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-input-a_R2_001_fastqc.html
+[2021-03-31 00:16:19,767] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-input-b_R1_001_fastqc.html
+[2021-03-31 00:16:19,768] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-input-b_R2_001_fastqc.html
+[2021-03-31 00:16:19,768] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-input-c_R1_001_fastqc.html
+[2021-03-31 00:16:19,769] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-input-c_R2_001_fastqc.html
+[2021-03-31 00:16:19,770] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-output-a_R1_001_fastqc.html
+[2021-03-31 00:16:19,771] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-output-a_R2_001_fastqc.html
+[2021-03-31 00:16:19,772] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-output-b_R1_001_fastqc.html
+[2021-03-31 00:16:19,773] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-output-b_R2_001_fastqc.html
+[2021-03-31 00:16:19,774] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-output-c_R1_001_fastqc.html
+[2021-03-31 00:16:19,775] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: N2B-output-c_R2_001_fastqc.html
+[2021-03-31 00:16:20,015] multiqc                                            [DEBUG  ]  No samples found: afterqc
+[2021-03-31 00:16:20,019] multiqc                                            [DEBUG  ]  No samples found: custom_content
+[2021-03-31 00:16:20,022] multiqc                                            [DEBUG  ]  No samples found: conpair
+[2021-03-31 00:16:20,025] multiqc                                            [DEBUG  ]  No samples found: peddy
+[2021-03-31 00:16:20,027] multiqc                                            [DEBUG  ]  No samples found: methylQA
+[2021-03-31 00:16:20,031] multiqc                                            [DEBUG  ]  No samples found: qualimap
+[2021-03-31 00:16:20,034] multiqc                                            [DEBUG  ]  No samples found: preseq
+[2021-03-31 00:16:20,037] multiqc                                            [DEBUG  ]  No samples found: quast
+[2021-03-31 00:16:20,039] multiqc                                            [DEBUG  ]  No samples found: qorts
+[2021-03-31 00:16:20,042] multiqc                                            [DEBUG  ]  No samples found: rna_seqc
+[2021-03-31 00:16:20,045] multiqc                                            [DEBUG  ]  No samples found: rsem
+[2021-03-31 00:16:20,049] multiqc                                            [DEBUG  ]  No samples found: rseqc
+[2021-03-31 00:16:20,052] multiqc                                            [DEBUG  ]  No samples found: busco
+[2021-03-31 00:16:20,055] multiqc                                            [DEBUG  ]  No samples found: goleft_indexcov
+[2021-03-31 00:16:20,058] multiqc                                            [DEBUG  ]  No samples found: disambiguate
+[2021-03-31 00:16:20,061] multiqc                                            [DEBUG  ]  No samples found: supernova
+[2021-03-31 00:16:20,064] multiqc                                            [DEBUG  ]  No samples found: deeptools
+[2021-03-31 00:16:20,068] multiqc                                            [DEBUG  ]  No samples found: homer
+[2021-03-31 00:16:20,071] multiqc                                            [DEBUG  ]  No samples found: macs2
+[2021-03-31 00:16:20,074] multiqc                                            [DEBUG  ]  No samples found: theta2
+[2021-03-31 00:16:20,077] multiqc                                            [DEBUG  ]  No samples found: snpeff
+[2021-03-31 00:16:20,081] multiqc                                            [DEBUG  ]  No samples found: gatk
+[2021-03-31 00:16:20,084] multiqc                                            [DEBUG  ]  No samples found: htseq
+[2021-03-31 00:16:20,087] multiqc                                            [DEBUG  ]  No samples found: bcftools
+[2021-03-31 00:16:20,089] multiqc                                            [DEBUG  ]  No samples found: featureCounts
+[2021-03-31 00:16:20,093] multiqc                                            [DEBUG  ]  No samples found: picard
+[2021-03-31 00:16:20,096] multiqc                                            [DEBUG  ]  No samples found: prokka
+[2021-03-31 00:16:20,099] multiqc                                            [DEBUG  ]  No samples found: samblaster
+[2021-03-31 00:16:20,102] multiqc                                            [DEBUG  ]  No samples found: samtools
+[2021-03-31 00:16:20,105] multiqc                                            [DEBUG  ]  No samples found: bamtools
+[2021-03-31 00:16:20,108] multiqc                                            [DEBUG  ]  No samples found: jellyfish
+[2021-03-31 00:16:20,111] multiqc                                            [DEBUG  ]  No samples found: vcftools
+[2021-03-31 00:16:20,115] multiqc                                            [DEBUG  ]  No samples found: bbmap
+[2021-03-31 00:16:20,118] multiqc                                            [DEBUG  ]  No samples found: bismark
+[2021-03-31 00:16:20,121] multiqc                                            [DEBUG  ]  No samples found: hicexplorer
+[2021-03-31 00:16:20,124] multiqc                                            [DEBUG  ]  No samples found: hicup
+[2021-03-31 00:16:20,127] multiqc                                            [DEBUG  ]  No samples found: salmon
+[2021-03-31 00:16:20,130] multiqc                                            [DEBUG  ]  No samples found: kallisto
+[2021-03-31 00:16:20,132] multiqc                                            [DEBUG  ]  No samples found: slamdunk
+[2021-03-31 00:16:20,135] multiqc                                            [DEBUG  ]  No samples found: star
+[2021-03-31 00:16:20,138] multiqc                                            [DEBUG  ]  No samples found: hisat2
+[2021-03-31 00:16:20,141] multiqc                                            [DEBUG  ]  No samples found: tophat
+[2021-03-31 00:16:20,144] multiqc                                            [DEBUG  ]  No samples found: bowtie2
+[2021-03-31 00:16:20,147] multiqc                                            [DEBUG  ]  No samples found: bowtie1
+[2021-03-31 00:16:20,150] multiqc                                            [DEBUG  ]  No samples found: leehom
+[2021-03-31 00:16:20,153] multiqc                                            [DEBUG  ]  No samples found: adapterRemoval
+[2021-03-31 00:16:20,155] multiqc                                            [DEBUG  ]  No samples found: cutadapt
+[2021-03-31 00:16:20,159] multiqc                                            [DEBUG  ]  No samples found: flexbar
+[2021-03-31 00:16:20,161] multiqc                                            [DEBUG  ]  No samples found: trimmomatic
+[2021-03-31 00:16:20,164] multiqc                                            [DEBUG  ]  No samples found: skewer
+[2021-03-31 00:16:20,167] multiqc                                            [DEBUG  ]  No samples found: sortmerna
+[2021-03-31 00:16:20,170] multiqc                                            [DEBUG  ]  No samples found: biobloomtools
+[2021-03-31 00:16:20,173] multiqc                                            [DEBUG  ]  No samples found: fastq_screen
+[2021-03-31 00:16:22,143] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 24 reports
+[2021-03-31 00:16:24,246] multiqc                                            [DEBUG  ]  No samples found: clusterflow
+[2021-03-31 00:16:24,248] multiqc                                            [DEBUG  ]  No samples found: bcl2fastq
+[2021-03-31 00:16:24,251] multiqc                                            [DEBUG  ]  No samples found: interop
+[2021-03-31 00:16:24,278] multiqc                                            [INFO   ]  Compressing plot data
+[2021-03-31 00:16:26,022] multiqc                                            [WARNING]  Deleting    : fastqc/multiqc/multiqc_report.html   (-f was specified)
+[2021-03-31 00:16:26,024] multiqc                                            [WARNING]  Deleting    : fastqc/multiqc/multiqc_data   (-f was specified)
+[2021-03-31 00:16:26,042] multiqc                                            [INFO   ]  Report      : fastqc/multiqc/multiqc_report.html
+[2021-03-31 00:16:26,043] multiqc                                            [INFO   ]  Data        : fastqc/multiqc/multiqc_data
+[2021-03-31 00:16:26,043] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpSOEYgW/multiqc_data/multiqc_general_stats.txt' to './fastqc/multiqc/multiqc_data'
+[2021-03-31 00:16:26,045] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpSOEYgW/multiqc_data/multiqc_data.json' to './fastqc/multiqc/multiqc_data'
+[2021-03-31 00:16:26,062] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpSOEYgW/multiqc_data/multiqc_sources.txt' to './fastqc/multiqc/multiqc_data'
+[2021-03-31 00:16:26,063] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpSOEYgW/multiqc_data/multiqc_fastqc.txt' to './fastqc/multiqc/multiqc_data'
+[2021-03-31 00:16:26,253] multiqc                                            [INFO   ]  MultiQC complete

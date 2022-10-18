@@ -1,0 +1,25 @@
+Sample	adapter_content	Sequences flagged as poor quality	sequence_duplication_levels	avg_sequence_length	Encoding	per_base_sequence_quality	sequence_length_distribution	Sequence length	File type	basic_statistics	per_sequence_gc_content	Total Sequences	per_base_n_content	per_base_sequence_content	overrepresented_sequences	%GC	total_deduplicated_percentage	Filename	per_tile_sequence_quality	per_sequence_quality_scores
+N2A-input-a_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	63811261.0	pass	fail	fail	50.0	3.71964091936	N2A-input-a_R1_001.fastq.gz	pass	pass
+N2A-input-a_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	63811261.0	pass	fail	fail	50.0	11.4350976489	N2A-input-a_R2_001.fastq.gz	pass	pass
+N2A-input-b_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	59983848.0	pass	fail	fail	50.0	3.96937528671	N2A-input-b_R1_001.fastq.gz	pass	pass
+N2A-input-b_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	59983848.0	pass	fail	fail	50.0	12.779795235	N2A-input-b_R2_001.fastq.gz	pass	pass
+N2A-input-c_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	60860281.0	pass	fail	fail	50.0	3.78759336176	N2A-input-c_R1_001.fastq.gz	pass	pass
+N2A-input-c_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	60860281.0	pass	fail	fail	50.0	11.9462029305	N2A-input-c_R2_001.fastq.gz	pass	pass
+N2A-output-a_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	147561025.0	pass	fail	fail	58.0	0.887545302061	N2A-output-a_R1_001.fastq.gz	pass	pass
+N2A-output-a_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	147561025.0	pass	fail	fail	58.0	4.49475170392	N2A-output-a_R2_001.fastq.gz	warn	pass
+N2A-output-b_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	146988484.0	pass	fail	fail	58.0	0.937546692337	N2A-output-b_R1_001.fastq.gz	pass	pass
+N2A-output-b_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	146988484.0	pass	fail	fail	58.0	4.66651365187	N2A-output-b_R2_001.fastq.gz	pass	pass
+N2A-output-c_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	125676262.0	pass	fail	fail	58.0	0.928679216577	N2A-output-c_R1_001.fastq.gz	pass	pass
+N2A-output-c_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	125676262.0	pass	fail	fail	58.0	5.07827911358	N2A-output-c_R2_001.fastq.gz	warn	pass
+N2B-input-a_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	75048942.0	pass	fail	fail	46.0	2.37420139327	N2B-input-a_R1_001.fastq.gz	pass	pass
+N2B-input-a_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	75048942.0	pass	fail	fail	47.0	10.2516739235	N2B-input-a_R2_001.fastq.gz	pass	pass
+N2B-input-b_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	59943504.0	pass	fail	fail	46.0	2.53751500926	N2B-input-b_R1_001.fastq.gz	pass	pass
+N2B-input-b_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	59943504.0	pass	fail	fail	46.0	11.3956119381	N2B-input-b_R2_001.fastq.gz	pass	pass
+N2B-input-c_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	60797797.0	pass	fail	fail	46.0	2.65817066846	N2B-input-c_R1_001.fastq.gz	pass	pass
+N2B-input-c_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	60797797.0	pass	fail	fail	46.0	11.1877763839	N2B-input-c_R2_001.fastq.gz	pass	pass
+N2B-output-a_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	150338371.0	pass	fail	fail	59.0	0.784293020986	N2B-output-a_R1_001.fastq.gz	fail	pass
+N2B-output-a_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	150338371.0	pass	fail	fail	59.0	4.2348186864	N2B-output-a_R2_001.fastq.gz	warn	pass
+N2B-output-b_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	130938402.0	pass	fail	fail	59.0	0.805240778472	N2B-output-b_R1_001.fastq.gz	fail	pass
+N2B-output-b_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	130938402.0	pass	fail	fail	59.0	4.62074085114	N2B-output-b_R2_001.fastq.gz	warn	pass
+N2B-output-c_R1_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	135029841.0	pass	fail	fail	59.0	0.901546485658	N2B-output-c_R1_001.fastq.gz	fail	pass
+N2B-output-c_R2_001	pass	0.0	fail	150.0	Sanger / Illumina 1.9	pass	pass	150.0	Conventional base calls	pass	fail	135029841.0	pass	fail	fail	59.0	4.77011802407	N2B-output-c_R2_001.fastq.gz	warn	pass
