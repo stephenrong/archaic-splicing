@@ -1,11 +1,11 @@
 # Neanderthal MaPSy analysis
 
-Updated: 2021-05-20. Contact: Stephen Rong.
+Updated: 2022-10-18. Contact: Stephen Rong.
 
 
 ### Introduction
 
-This repository contains scripts for analyzing NGS data from the Neanderthal libraries.
+This repository contains scripts for analyzing NGS data from the Neanderthal MaPSy experiments.
 
 
 ### Contents

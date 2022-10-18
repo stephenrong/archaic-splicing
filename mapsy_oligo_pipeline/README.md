@@ -1,11 +1,11 @@
 # Neanderthal Updated Library
 
-Updated: 2021-05-19. Contact: Stephen Rong.
+Updated: 2022-10-18. Contact: Stephen Rong.
 
 
 ### Introduction
 
-This repository contains the scripts for generating the oligo sequences for the updated Neanderthal library order used in MaPSy experiments. It differs from the pilot Neanderthal library order in a few key ways: we changed the design of the oligos slightly, we removed variants unrelated to the modern and archaic variants, and we added additional variants from a new population genetic analysis of 1000 Genomes and gnomAD allele frequencies, three high-coverage Neanderthal genomes (Altai, Vindija, Chagyrskaya individuals), and one high-coverage Denisovan genome (Altai individual). Notably, we now have a more complete set of modern, archaic, and Neanderthal-specific variants, and added a new set of Denisovan-specific variants.
+This repository contains the scripts for generating the oligo sequences for the Neanderthal MaPSy experiments.
 
 
 ### Contents
