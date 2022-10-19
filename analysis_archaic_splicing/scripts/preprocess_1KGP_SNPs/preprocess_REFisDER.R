@@ -136,12 +136,3 @@ hg19_REFisDER_1KGP_archaic_hub <- as_tibble(fread("../../results/preprocess_1KGP
 print("gnomAD table to bed")
 hg19_REFisDER_1KGP_archaic_bed <- "../../results/preprocess_1KGP_SNPs/hg19_REFisDER_1KGP_archaic_hub.bed"
 hub_to_bed(hg19_REFisDER_1KGP_archaic_hub, hg19_REFisDER_1KGP_archaic_bed)
-
-# # 	bed to vcf
-# print("gnomAD bed to vcf")
-# gnomAD_file <- "../../../final-splicing-archaic-variants/data/annotate_popgen_gnomAD/gnomAD_AF/gnomad.genomes.r2.1.1.sites.passFILTER.dropINFO.updated.vcf.gz"
-# hg19_REFisDER_1KGP_archaic_gnomAD_file <- "../../results/preprocess_1KGP_SNPs/hg19_REFisDER_1KGP_archaic_gnomAD_file.vcf.gz"
-# # 	https://stackoverflow.com/questions/40845452/specify-which-shell-to-use-in-r/40845667
-# system(paste("echo ", shQuote(paste("#!/bin/sh\ntabix -h ", gnomAD_file, " -R ", hg19_REFisDER_1KGP_archaic_bed, " | bcftools sort | bgzip -c >| ", hg19_REFisDER_1KGP_archaic_gnomAD_file, 
-# 	"\n", "tabix -p vcf ", hg19_REFisDER_1KGP_archaic_gnomAD_file, sep="")), " >| preprocess_REFisDER_part1_gnomAD.sh", sep=""))
-# # system("sh preprocess_REFisDER_part1_gnomAD.sh")
