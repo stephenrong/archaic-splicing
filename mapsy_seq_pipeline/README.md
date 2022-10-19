@@ -44,4 +44,4 @@ This repository contains scripts for analyzing NGS data from the Neanderthal MaP
 
 ### Dependencies
 
-R (version 4.0.2), with packages: tidyverse (1.3.0), ggpubr (0.4.0), GGally (2.0.0), DescTools (0.99.39), mpra (1.10.0), bedtools (2.29.1), samtools (1.9), STAR (2.7.3a), fastqc (0.11.8), multiqc (1.8).
+R (version 4.0.2), with packages: tidyverse (1.3.0), ggpubr (0.4.0), GGally (2.0.0), DescTools (0.99.39), mpra (1.10.0). Other Software: bedtools (2.29.1), samtools (1.9), STAR (2.7.3a), fastqc (0.11.8), multiqc (1.8).

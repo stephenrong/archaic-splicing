@@ -1,4 +1,4 @@
-# Neanderthal Updated Library
+# Neanderthal MaPSy Library
 
 Updated: 2022-10-18. Contact: Stephen Rong.
 

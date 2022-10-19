@@ -3,7 +3,6 @@
 library(tidyverse)
 library(data.table)
 library(ggthemes)
-# library(viridis)
 library(MetBrewer)
 
 # AI vs NAI comparisons
