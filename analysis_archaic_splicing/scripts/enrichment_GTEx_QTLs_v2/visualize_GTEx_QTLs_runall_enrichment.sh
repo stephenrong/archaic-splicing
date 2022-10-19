@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# for manuscript
+Rscript visualize_GTEx_QTLs_AF_LD_v2.R
+
+Rscript visualize_GTEx_QTLs_region_adaptively.R
+Rscript visualize_GTEx_QTLs_region_hapR2_adaptively.R
+Rscript visualize_GTEx_QTLs_region_introgressed.R
+Rscript visualize_GTEx_QTLs_region_hapR2_introgressed.R
+
+Rscript visualize_GTEx_QTLs_region_hapR2_direct_compare_introgressed.R
+Rscript visualize_GTEx_QTLs_region_hapR2_direct_compare_introgressed_nohapR2.R
+Rscript visualize_GTEx_QTLs_region_hapR2_direct_compare_introgressed_SpliceAI.R
+Rscript visualize_GTEx_QTLs_region_hapR2_direct_compare_introgressed_SpliceAI_nohapR2.R

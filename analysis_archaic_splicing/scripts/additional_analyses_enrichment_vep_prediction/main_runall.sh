@@ -1,0 +1,5 @@
+#!/bin/sh
+Rscript enrichment_vep_prediction_missense.R
+Rscript enrichment_vep_prediction_synonymous.R
+Rscript enrichment_vep_prediction_nonsense.R
+Rscript enrichment_vep_prediction_splicesite.R

@@ -1,0 +1,8 @@
+conda create --name vep2
+conda activate vep2
+conda install -c conda-forge perl
+conda install -c conda-forge -c bioconda ensembl-vep==107
+conda install -c bioconda perl-app-cpanminus
+cpanm LWP::Simple
+cpanm Module::Build
+vep_install -a cf -s homo_sapiens -y GRCh37 --CONVERT

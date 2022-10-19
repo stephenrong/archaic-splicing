@@ -1,0 +1,7 @@
+name	value
+hub_in_final_study_modern	0
+hub_in_final_study_archaic	0
+hub_in_final_study_nean	0
+hub_in_final_study_deni	0
+hub_in_final_study_introgressed	2
+hub_in_final_study_adaptive	0

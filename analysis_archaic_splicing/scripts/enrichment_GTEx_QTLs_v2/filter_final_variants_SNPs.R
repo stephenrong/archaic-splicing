@@ -1,0 +1,113 @@
+#!/bin/R
+
+# Filter final library SNP info, filter AI, filter to MAF >= 1% in EUR
+
+library(tidyverse)
+library(data.table)
+
+# fix files
+final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hapR2_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hapR2_hub.txt.gz")) %>% mutate(hub_variant_CHROM=as.character(hub_variant_CHROM)) %>% mutate(CHROM=as.character(CHROM))
+final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub.txt.gz")) %>% mutate(hub_variant_CHROM=as.character(hub_variant_CHROM)) %>% mutate(CHROM=as.character(CHROM))
+final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub <- bind_cols(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub, final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hapR2_hub %>% dplyr::select(EUR_AC_bin, EUR_hapR2tag, EUR_hapR2tag_bin))
+write_tsv(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub, gzfile("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub.txt.gz"))
+
+# load files
+final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub.txt.gz")) %>% mutate(hub_variant_CHROM=as.character(hub_variant_CHROM)) %>% mutate(CHROM=as.character(CHROM))
+
+# filter variants
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub <- final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_variant_REF %in% c("A", "C", "T", "G")) %>%  # SNP only
+	filter(hub_variant_ALT %in% c("A", "C", "T", "G")) %>%  # SNP only
+	filter(!(hub_variant_CHROM %in% c("X", "Y")))  # autosomes only
+
+# filter by European MAF
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(EUR_AF >= 0.01, EUR_AF <= 0.99)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub.txt.gz"))
+
+# save ldvernot akey 2016
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_ldvernot_akey_2016_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_ldvernot_akey_2016_EUR)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_ldvernot_akey_2016_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_ldvernot_akey_2016_hub.txt.gz"))
+
+# save browning 2016
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_browning_2018_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_browning_2018_CEU|hub_in_browning_2018_IBS|hub_in_browning_2018_GBR|hub_in_browning_2018_FIN|hub_in_browning_2018_TSI)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_browning_2018_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_browning_2018_hub.txt.gz"))
+
+
+# save rinker 2020 NDA
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_NDA_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_rinker_2020_NDA_EUR)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_NDA_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_NDA_hub.txt.gz"))
+
+# save rinker 2020 RAA
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RAA_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_rinker_2020_RAA_EUR)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RAA_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RAA_hub.txt.gz"))
+
+# save rinker 2020 RHA
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RHA_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_rinker_2020_RHA_EUR)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RHA_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RHA_hub.txt.gz"))
+
+# save rinker 2020 RA
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RA_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_rinker_2020_RAA_EUR|hub_in_rinker_2020_RHA_EUR)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RA_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_rinker_2020_RA_hub.txt.gz"))
+
+# save gittelman 2016
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_gittelman_2016_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_gittelman_2016_EUR)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_gittelman_2016_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_gittelman_2016_hub.txt.gz"))
+
+
+# save archaic introgressed all
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_ldvernot_akey_2016_EUR|hub_in_browning_2018_CEU|hub_in_browning_2018_IBS|hub_in_browning_2018_GBR|hub_in_browning_2018_FIN|hub_in_browning_2018_TSI, hub_in_final_study_introgressed)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_hub.txt.gz"))
+
+# save archaic introgressed DER
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_DER_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_ldvernot_akey_2016_EUR|hub_in_browning_2018_CEU|hub_in_browning_2018_IBS|hub_in_browning_2018_GBR|hub_in_browning_2018_FIN|hub_in_browning_2018_TSI, hub_in_final_study_introgressed_DER)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_DER_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_DER_hub.txt.gz"))
+
+# save archaic introgressed ANC
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_ANC_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_ldvernot_akey_2016_EUR|hub_in_browning_2018_CEU|hub_in_browning_2018_IBS|hub_in_browning_2018_GBR|hub_in_browning_2018_FIN|hub_in_browning_2018_TSI, hub_in_final_study_introgressed_ANC)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_ANC_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_ANC_hub.txt.gz"))
+
+# save archaic introgressed AF_FAIL
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_AF_FAIL_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_ldvernot_akey_2016_EUR|hub_in_browning_2018_CEU|hub_in_browning_2018_IBS|hub_in_browning_2018_GBR|hub_in_browning_2018_FIN|hub_in_browning_2018_TSI, hub_in_final_study_introgressed_AF_FAIL)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_AF_FAIL_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_AF_FAIL_hub.txt.gz"))
+
+# save archaic introgressed MATCH_FAIL
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_MATCH_FAIL_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_ldvernot_akey_2016_EUR|hub_in_browning_2018_CEU|hub_in_browning_2018_IBS|hub_in_browning_2018_GBR|hub_in_browning_2018_FIN|hub_in_browning_2018_TSI, hub_in_final_study_introgressed_MATCH_FAIL)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_MATCH_FAIL_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_introgressed_MATCH_FAIL_hub.txt.gz"))
+
+# save adaptively introgressed all
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_gittelman_2016_EUR, hub_in_final_study_adaptive)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_hub.txt.gz"))
+
+# save adaptively introgressed DER
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_DER_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_gittelman_2016_EUR, hub_in_final_study_adaptive_DER)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_DER_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_DER_hub.txt.gz"))
+
+# save adaptively introgressed ANC
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_ANC_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_gittelman_2016_EUR, hub_in_final_study_adaptive_ANC)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_ANC_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_ANC_hub.txt.gz"))
+
+# save adaptively introgressed AF_FAIL
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_AF_FAIL_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_gittelman_2016_EUR, hub_in_final_study_adaptive_AF_FAIL)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_AF_FAIL_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_AF_FAIL_hub.txt.gz"))
+
+# save adaptively introgressed MATCH_FAIL
+filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_MATCH_FAIL_hub <- filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_hub %>% 
+	filter(hub_in_gittelman_2016_EUR, hub_in_final_study_adaptive_MATCH_FAIL)
+write_tsv(filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_MATCH_FAIL_hub, gzfile("../../results/enrichment_GTEx_QTLs_v2/filter_final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hapR2_adaptive_MATCH_FAIL_hub.txt.gz"))
