@@ -11,6 +11,25 @@ This repository contains the scripts for generating the oligo sequences for the 
 ### Contents
 
 **scripts/**: Contains the scripts for reproducing analyses, tables, and figures in manuscript.
+  * additional_analyses_1KGP_SpliceAI_diff
+  * additional_analyses_constrained_genes
+  * additional_analyses_enrichment_vep_prediction
+  * additional_analyses_fine_map_overlap
+  * annotate_splice_prediction
+  * distribution_splice_prediction
+  * enrichment_GTEx_QTLs_v2
+  * enrichment_splice_prediction_gw_raw
+  * linkage_hapR2_SNPs
+  * mapsy_to_variant_table_updated
+  * preprocess_1KGP_SNPs
+  * preprocess_GTEx_QTLs
+  * supplementary_tables
+  * upset_plot_variants
+  * validate_half_exons
+  * vep_annotations_SNPs
+  * visualize_genomic_range
+
+**results/**: Contains the result corresponding to scripts subdirectory of same name.
   * additional_analyses_1KGP_SpliceAI_diff: 
   * additional_analyses_constrained_genes: 
   * additional_analyses_enrichment_vep_prediction: 
@@ -29,10 +48,17 @@ This repository contains the scripts for generating the oligo sequences for the 
   * vep_annotations_SNPs: 
   * visualize_genomic_range: 
 
-**results/**: Contains the result corresponding to scripts subdirectory of same name.
-
 **data/**: Contains the input data needed for running the scripts.
-
+  * annotate_B_statistics: 
+  * annotate_GTEx_eQTLs
+  * annotate_GTEx_sQTLs
+  * annotate_hexamer_scores
+  * annotate_lift_over
+  * annotate_spliceai
+  * fasta
+  * finemap_overlap
+  * gnomAD_v2_constraint
+  * premapsy_variants
 
 ### Dependencies
 
