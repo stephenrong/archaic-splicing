@@ -11,58 +11,54 @@ This repository contains the scripts for reproducing the analyses, tables, and f
 ### Contents
 
 **scripts/**: Contains the scripts for reproducing analyses, tables, and figures in manuscript.
-  * additional_analyses_1KGP_SpliceAI_diff
-  * additional_analyses_constrained_genes
-  * additional_analyses_enrichment_vep_prediction
-  * additional_analyses_fine_map_overlap
-  * annotate_splice_prediction
-  * distribution_splice_prediction
-  * enrichment_GTEx_QTLs_v2
-  * enrichment_splice_prediction_gw_raw
-  * linkage_hapR2_SNPs
-  * mapsy_to_variant_table_updated
-  * preprocess_1KGP_SNPs
-  * preprocess_GTEx_QTLs
-  * supplementary_tables
-  * upset_plot_variants
-  * validate_half_exons
-  * vep_annotations_SNPs
-  * visualize_genomic_range
+  * additional_analyses_1KGP_SpliceAI_diff: SpliceAI differences between 1KGP populations.
+  * additional_analyses_constrained_genes: MaPSy and SpliceAI vs gnomAD constrained genes.
+  * additional_analyses_enrichment_vep_prediction: Enrichments of Ensembl VEP proportions.
+  * additional_analyses_fine_map_overlap: UKB and BBJ fine-mapped variant overlaps.
+  * annotate_splice_prediction: SpliceAI annotations.
+  * distribution_splice_prediction: MaPSy vs Ensembl VEP, SpliceAI, and hexamer ESE/ESS scores.
+  * enrichment_GTEx_QTLs_v2: Enrichments of GTEx, VEP, and SpliceAI relative to matched controls.
+  * enrichment_splice_prediction_gw_raw: Enrichment of SpliceAI proportions.
+  * linkage_hapR2_SNPs: LD statistics used for enrichment analyses.
+  * mapsy_to_variant_table_updated: Main comparison of proportion figures.
+  * preprocess_1KGP_SNPs: Generate final hominin evolution variant sets.
+  * preprocess_GTEx_QTLs: Collate GTEx eVariants and sVariants.
+  * supplementary_tables: Generate supplementary tables.
+  * upset_plot_variants: UpSet plots of variant sets.
+  * validate_half_exons: Half exon MaPSy construct validations.
+  * vep_annotations_SNPs: Ensembl VEP annotations.
+  * visualize_genomic_range: Visualizations of individual splicing variants.
 
 **results/**: Contains the result corresponding to scripts subdirectory of same name.
   * additional_analyses_1KGP_SpliceAI_diff
   * additional_analyses_constrained_genes
   * additional_analyses_enrichment_vep_prediction
   * additional_analyses_fine_map_overlap
-  * annotate_splice_prediction: 
-      large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * annotate_splice_prediction: files available at (https://doi.org/10.5281/zenodo.7158564).
   * distribution_splice_prediction
-  * enrichment_GTEx_QTLs_v2: 
-      large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * enrichment_GTEx_QTLs_v2: files available at (https://doi.org/10.5281/zenodo.7158564).
   * enrichment_splice_prediction_gw_raw
   * linkage_hapR2_SNPs
   * mapsy_to_variant_table_updated
-  * preprocess_1KGP_SNPs: 
-      large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * preprocess_1KGP_SNPs: files available at (https://doi.org/10.5281/zenodo.7158564).
   * preprocess_GTEx_QTLs
   * supplementary_tables
   * upset_plot_variants
   * validate_half_exons
-  * vep_annotations_SNPs: 
-      large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * vep_annotations_SNPs: files available at (https://doi.org/10.5281/zenodo.7158564).
   * visualize_genomic_range
 
 **data/**: Contains the input data needed for running the scripts.
-  * annotate_B_statistics: 
-  * annotate_GTEx_eQTLs
-  * annotate_GTEx_sQTLs
-  * annotate_hexamer_scores
-  * annotate_lift_over
-  * annotate_spliceai
-  * fasta
-  * finemap_overlap
-  * gnomAD_v2_constraint
-  * premapsy_variants
+  * annotate_B_statistics: B statistics for background selection from McVicker et al. (2009).
+  * annotate_GTEx_eQTLs: GTEx v8 eQTL significant variant gene pairs.
+  * annotate_GTEx_sQTLs: GTEx v8 sQTL significant variant phenotype pairs
+  * annotate_hexamer_scores: Hexamer ESE/ESS scores from Ke et al. (2011) and Rosenberg et al. (2015).
+  * annotate_lift_over: UCSC liftOver chains for hg18, hg19, and hg38.
+  * annotate_spliceai: SpliceAI raw genome scores v1.3.
+  * fasta: Homo sapiens GRCh37 reference genome.
+  * finemap_overlap: UKB and BBJ fine-mapped variants from Kanai et al. (2021)
+  * gnomAD_v2_constraint: gnomAD LOEUF metrics from Karczewski et al. (2020.)
+  * premapsy_variants: MaPSy variants from an earlier analysis.
 
 ### Dependencies
 
