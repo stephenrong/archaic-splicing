@@ -1,1 +1,1 @@
-Downloaded UKB from https://www.finucanelab.org/data and BBJ from https://pheweb.jp/
+Downloaded UKB from https://www.finucanelab.org/data and BBJ from https://pheweb.jp/.

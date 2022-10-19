@@ -1,1 +1,1 @@
-Result of prior analysis from ../../splicing-archaic-annotate/results/1-variants/merge_variants_library_hub.vcf.gz
+Result of prior analysis from ../../splicing-archaic-annotate/results/1-variants/merge_variants_library_hub.vcf.gz.
