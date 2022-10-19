@@ -5,7 +5,7 @@ Updated: 2022-10-18. Contact: Stephen Rong.
 
 ### Introduction
 
-This repository contains the scripts for generating the oligo sequences for the Neanderthal MaPSy experiments.
+This repository contains the scripts for reproducing the analyses, tables, and figures in the manuscript.
 
 
 ### Contents
