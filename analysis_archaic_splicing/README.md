@@ -30,23 +30,23 @@ This repository contains the scripts for reproducing the analyses, tables, and f
   * visualize_genomic_range
 
 **results/**: Contains the result corresponding to scripts subdirectory of same name.
-  * additional_analyses_1KGP_SpliceAI_diff: 
-  * additional_analyses_constrained_genes: 
-  * additional_analyses_enrichment_vep_prediction: 
-  * additional_analyses_fine_map_overlap: 
-  * annotate_splice_prediction: 
-  * distribution_splice_prediction: 
-  * enrichment_GTEx_QTLs_v2: 
-  * enrichment_splice_prediction_gw_raw: 
-  * linkage_hapR2_SNPs: 
-  * mapsy_to_variant_table_updated: 
-  * preprocess_1KGP_SNPs: 
-  * preprocess_GTEx_QTLs: 
-  * supplementary_tables: 
-  * upset_plot_variants: 
-  * validate_half_exons: 
-  * vep_annotations_SNPs: 
-  * visualize_genomic_range: 
+  * additional_analyses_1KGP_SpliceAI_diff
+  * additional_analyses_constrained_genes
+  * additional_analyses_enrichment_vep_prediction
+  * additional_analyses_fine_map_overlap
+  * annotate_splice_prediction: large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * distribution_splice_prediction
+  * enrichment_GTEx_QTLs_v2: large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * enrichment_splice_prediction_gw_raw
+  * linkage_hapR2_SNPs
+  * mapsy_to_variant_table_updated
+  * preprocess_1KGP_SNPs: large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * preprocess_GTEx_QTLs
+  * supplementary_tables
+  * upset_plot_variants
+  * validate_half_exons
+  * vep_annotations_SNPs: large files available at (https://doi.org/10.5281/zenodo.7158564).
+  * visualize_genomic_range
 
 **data/**: Contains the input data needed for running the scripts.
   * annotate_B_statistics: 
