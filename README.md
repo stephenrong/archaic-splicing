@@ -1,4 +1,4 @@
-# Scripts for: Large scale functional screen identifies genetic variants with splicing effects in modern and archaic humans
+# Large scale functional screen identifies genetic variants with splicing effects in modern and archaic humans
 
 Updated: 2022-10-18. Contact: Stephen Rong.
 
