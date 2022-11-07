@@ -76,13 +76,13 @@ final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub <- final_v2_varian
 sort(table(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub$hub_variant_introgr_filter))
 sort(table(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub$hub_variant_introgr_class))
 
-# save
-tab_hub_variant_introgr_filter <- as_tibble(data.frame(sort(table(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub$hub_variant_introgr_filter))))
-tab_hub_variant_introgr_class <- as_tibble(data.frame(sort(table(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub$hub_variant_introgr_class))))
-names(tab_hub_variant_introgr_filter) <- c("hub_variant_introgr_filter", "n")
-names(tab_hub_variant_introgr_class) <- c("hub_variant_introgr_class", "n")
-write_tsv(tab_hub_variant_introgr_filter, "../../results/preprocess_1KGP_SNPs/tab_hub_variant_introgr_filter.txt")
-write_tsv(tab_hub_variant_introgr_class, "../../results/preprocess_1KGP_SNPs/tab_hub_variant_introgr_class.txt")
+# # save
+# tab_hub_variant_introgr_filter <- as_tibble(data.frame(sort(table(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub$hub_variant_introgr_filter))))
+# tab_hub_variant_introgr_class <- as_tibble(data.frame(sort(table(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub$hub_variant_introgr_class))))
+# names(tab_hub_variant_introgr_filter) <- c("hub_variant_introgr_filter", "n")
+# names(tab_hub_variant_introgr_class) <- c("hub_variant_introgr_class", "n")
+# write_tsv(tab_hub_variant_introgr_filter, "../../results/preprocess_1KGP_SNPs/tab_hub_variant_introgr_filter.txt")
+# write_tsv(tab_hub_variant_introgr_class, "../../results/preprocess_1KGP_SNPs/tab_hub_variant_introgr_class.txt")
 
 # # Get neanderthal and denisovan desert variants
 final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub <- final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub %>% 
