@@ -1,6 +1,6 @@
 # Large scale functional screen identifies genetic variants with splicing effects in modern and archaic humans
 
-Updated: 2022-10-18. Contact: Stephen Rong.
+Updated: 2023-03-15. Contact: Stephen Rong.
 
 
 ### Introduction
