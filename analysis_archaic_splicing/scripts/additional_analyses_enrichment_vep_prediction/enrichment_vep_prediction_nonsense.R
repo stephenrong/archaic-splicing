@@ -7,10 +7,8 @@ library(ggpubr)
 library(Hmisc)
 
 # load table
-final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup_intlin.txt.gz"))
 final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep <- as_tibble(fread("../../results/vep_annotations_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep.txt.gz"))
-final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep <- final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep[,c(4,130:142)]
-final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep <- right_join(final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs, final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep)
+final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep <- final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep %>% filter(!(hub_variant_CHROM %in% c("X")))
 
 # vep_nonsense effect bin
 final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep <- final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub_vep %>% 
@@ -49,18 +47,19 @@ enrichment_vep_nonsense_figures <- function(list_cols, list_names, output_file, 
 	vep_nonsense_proportion_tab$description <- list_names
 
 	vep_nonsense_proportion_tab <- vep_nonsense_proportion_tab %>% 
-		mutate(description = factor(description, levels=list_names))
+		mutate(description = factor(description, levels=list_names, labels=paste0(description, " (n = ", scales::label_comma()(vep_nonsense_total), ")")))
 
 	# add statistical comparison
 	stat_test_pair <- pairwise_fisher_test(vep_nonsense_proportion_tab %>% 
 		dplyr::select(description, vep_nonsense_sig, vep_nonsense_nonsig) %>% 
 		column_to_rownames("description"), detailed=TRUE)
 	stat_test_pair_sig <- stat_test_pair %>% 
+		mutate(p = signif(p, 2)) %>% 
 		filter(p < 0.10)
 		# filter((p < 0.05) | (p == min(p)))
 
 	# does have significant pair
-	if (min(stat_test_pair$p) < 0.1) {
+	if (min(stat_test_pair$p) < 0.05) {
 		stat_test_pair_sig$y.position <- 
 			max(vep_nonsense_proportion_tab$vep_nonsense_propUCI) + 
 			c(1:(nrow(stat_test_pair_sig)))*spacer
@@ -100,7 +99,7 @@ enrichment_vep_nonsense_figures <- function(list_cols, list_names, output_file, 
 list_cols <- c("hub_in_final_study_modern", "hub_in_final_study_archaic", "hub_in_final_study_nean")
 list_names <- c("Modern", "Archaic", "Neanderthal")
 output_file <- "../../results/additional_analyses_enrichment_vep_prediction/Neanderthal_updated_vep_nonsense_prop_bar_plot_stat_nonsense-lineage_specific_nodeni.pdf"
-spacer <- 0.0005
+spacer <- 0.00005
 scale <- 0.55
 width <- 0.2
 enrichment_vep_nonsense_figures(list_cols, list_names, output_file, spacer, width)

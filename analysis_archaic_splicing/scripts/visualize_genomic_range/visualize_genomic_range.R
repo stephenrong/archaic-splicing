@@ -24,7 +24,7 @@ visualize_genomic_range <- function(vis_variant_id, win_half_size_gtex=NA, win_h
 
 	# load mapsy
 	mapsy_variant_table <- as_tibble(fread("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table.txt.gz"))
-	final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	vis_SYMBOL1 <- mapsy_variant_table %>% filter(hub_variant_ID == vis_variant_id) %>% .$exon_gene_name  # get gene name
 	vis_SYMBOL2 <- final_v2_spliceai %>% filter(hub_variant_ID == vis_variant_id) %>% .$SYMBOL  # get gene name
 	vis_SYMBOL <- unique(c(vis_SYMBOL1, vis_SYMBOL2))
@@ -56,7 +56,6 @@ visualize_genomic_range <- function(vis_variant_id, win_half_size_gtex=NA, win_h
 			hub_variant_ID=mapsy_variant_table$hub_variant_ID, hub_variant_CHROM=mapsy_variant_table$hub_variant_CHROM, hub_variant_POS=mapsy_variant_table$hub_variant_POS, hub_variant_REF=mapsy_variant_table$hub_variant_REF, hub_variant_ALT=mapsy_variant_table$hub_variant_ALT,
 			mpralm.ANCDER.logFC=mapsy_variant_table$mpralm.ANCDER.logFC)
 
-
 	# get gene models
 	gene_anno_gr <- as_tibble(fread("../../../final-mapsy-geisinger/data/known_canonical/gencode_v32_lift37_basic_canonical_exons.txt.gz")) %>% 
 		mutate(seqnames = gsub("chr", "", seqnames)) %>% 
@@ -71,7 +70,7 @@ visualize_genomic_range <- function(vis_variant_id, win_half_size_gtex=NA, win_h
 
 	# load spliceai
 	# # 	based on new SpliceAI scores
-	# final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	# final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	final_v2_spliceai <- final_v2_spliceai %>% 
 		filter(hub_variant_CHROM == vis_CHROM) %>% 
 		mutate(spliceai_max = spliceai_max)
@@ -192,7 +191,22 @@ visualize_genomic_range <- function(vis_variant_id, win_half_size_gtex=NA, win_h
 		spliceaioverlay <- OverlayTrack(trackList=list(spliceaitrack, spliceaitrack2))
 	}
 
-	# plot splicing tracks
+	# plot exon splicing tracks
+	htracksplice <- HighlightTrack(trackList=list(grtrack), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
+	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_exon.pdf", sep=""), 
+		height=0.75, width=4)
+	plotTracks(list(
+			htracksplice
+		), 
+		sizes=c(10),
+		from=vis_POS-200,
+		to=vis_POS+200,
+		reverseStrand=ifelse(vis_STRAND=="+", FALSE, TRUE),
+		complement=ifelse(vis_STRAND=="+", FALSE, TRUE)
+	)
+	dev.off()
+
+	# plot gene splicing tracks
 	htracksplice <- HighlightTrack(trackList=list(grtrack, mapsyoverlay, spliceaioverlay), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
 	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_splice.pdf", sep=""), 
 		height=3, width=5)
@@ -292,7 +306,7 @@ visualize_genomic_range_manual_spliceai <- function(vis_variant_id, win_half_siz
 
 	# load mapsy
 	mapsy_variant_table <- as_tibble(fread("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table.txt.gz"))
-	final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	vis_SYMBOL1 <- mapsy_variant_table %>% filter(hub_variant_ID == vis_variant_id) %>% .$exon_gene_name  # get gene name
 	vis_SYMBOL2 <- final_v2_spliceai %>% filter(hub_variant_ID == vis_variant_id) %>% .$SYMBOL  # get gene name
 	vis_SYMBOL <- unique(c(vis_SYMBOL1, vis_SYMBOL2))
@@ -339,7 +353,7 @@ visualize_genomic_range_manual_spliceai <- function(vis_variant_id, win_half_siz
 
 	# load spliceai
 	# # 	based on new SpliceAI scores
-	# final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	# final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	final_v2_spliceai <- final_v2_spliceai %>% 
 		filter(hub_variant_CHROM == vis_CHROM) %>% 
 		mutate(spliceai_max = spliceai_max)
@@ -480,7 +494,22 @@ visualize_genomic_range_manual_spliceai <- function(vis_variant_id, win_half_siz
 		spliceaioverlay <- OverlayTrack(trackList=list(spliceaitrack, spliceaitrack2))
 	}
 
-	# plot splicing tracks
+	# plot exon splicing tracks
+	htracksplice <- HighlightTrack(trackList=list(grtrack), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
+	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_exon.pdf", sep=""), 
+		height=0.75, width=4)
+	plotTracks(list(
+			htracksplice
+		), 
+		sizes=c(10),
+		from=vis_POS-200,
+		to=vis_POS+200,
+		reverseStrand=ifelse(vis_STRAND=="+", FALSE, TRUE),
+		complement=ifelse(vis_STRAND=="+", FALSE, TRUE)
+	)
+	dev.off()
+
+	# plot gene splicing tracks
 	htracksplice <- HighlightTrack(trackList=list(grtrack, mapsyoverlay, spliceaioverlay), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
 	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_splice.pdf", sep=""), 
 		height=3, width=5)
@@ -586,7 +615,7 @@ visualize_genomic_range_mapsyless <- function(vis_variant_id, win_half_size_gtex
 
 	# load spliceai
 	# # 	based on new SpliceAI scores
-	final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	final_v2_spliceai <- final_v2_spliceai %>% 
 		filter(hub_variant_CHROM == vis_CHROM) %>% 
 		mutate(spliceai_max = spliceai_max)
@@ -720,7 +749,22 @@ visualize_genomic_range_mapsyless <- function(vis_variant_id, win_half_size_gtex
 		spliceaioverlay <- OverlayTrack(trackList=list(spliceaitrack, spliceaitrack2))
 	}
 
-	# plot splicing tracks
+	# plot exon splicing tracks
+	htracksplice <- HighlightTrack(trackList=list(grtrack), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
+	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_exon.pdf", sep=""), 
+		height=0.75, width=4)
+	plotTracks(list(
+			htracksplice
+		), 
+		sizes=c(10),
+		from=vis_POS-200,
+		to=vis_POS+200,
+		reverseStrand=ifelse(vis_STRAND=="+", FALSE, TRUE),
+		complement=ifelse(vis_STRAND=="+", FALSE, TRUE)
+	)
+	dev.off()
+
+	# plot gene splicing tracks
 	htracksplice <- HighlightTrack(trackList=list(grtrack, spliceaioverlay), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
 	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_splice.pdf", sep=""), 
 		height=3, width=5)
@@ -819,7 +863,7 @@ visualize_genomic_range_no_LD <- function(vis_variant_id, win_half_size_gtex=NA,
 
 	# load mapsy
 	mapsy_variant_table <- as_tibble(fread("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table.txt.gz"))
-	final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	vis_SYMBOL1 <- mapsy_variant_table %>% filter(hub_variant_ID == vis_variant_id) %>% .$exon_gene_name  # get gene name
 	vis_SYMBOL2 <- final_v2_spliceai %>% filter(hub_variant_ID == vis_variant_id) %>% .$SYMBOL  # get gene name
 	vis_SYMBOL <- unique(c(vis_SYMBOL1, vis_SYMBOL2))
@@ -866,7 +910,7 @@ visualize_genomic_range_no_LD <- function(vis_variant_id, win_half_size_gtex=NA,
 
 	# load spliceai
 	# # 	based on new SpliceAI scores
-	# final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+	# final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 	final_v2_spliceai <- final_v2_spliceai %>% 
 		filter(hub_variant_CHROM == vis_CHROM) %>% 
 		mutate(spliceai_max = spliceai_max)
@@ -948,7 +992,22 @@ visualize_genomic_range_no_LD <- function(vis_variant_id, win_half_size_gtex=NA,
 		spliceaioverlay <- OverlayTrack(trackList=list(spliceaitrack, spliceaitrack2))
 	}
 
-	# plot splicing tracks
+	# plot exon splicing tracks
+	htracksplice <- HighlightTrack(trackList=list(grtrack), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
+	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_exon.pdf", sep=""), 
+		height=0.75, width=4)
+	plotTracks(list(
+			htracksplice
+		), 
+		sizes=c(10),
+		from=vis_POS-200,
+		to=vis_POS+200,
+		reverseStrand=ifelse(vis_STRAND=="+", FALSE, TRUE),
+		complement=ifelse(vis_STRAND=="+", FALSE, TRUE)
+	)
+	dev.off()
+
+	# plot gene splicing tracks
 	htracksplice <- HighlightTrack(trackList=list(grtrack, mapsyoverlay, spliceaioverlay), start=vis_POS, end=vis_POS, chromosome=vis_CHROM, alpha=0.1, col="#000000")
 	pdf(paste(out_folder, vis_SYMBOL, "_", gsub("/", "_", vis_variant_id), "_splice.pdf", sep=""), 
 		height=3, width=5)

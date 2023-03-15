@@ -79,8 +79,8 @@ ALL_1KGP_phase3_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1
 merge_variants_B_stat_mask_1KGP_hub <- merge_variants_B_stat_mask_hub %>% left_join(ALL_1KGP_phase3_hub)
 write_tsv(merge_variants_B_stat_mask_1KGP_hub, gzfile("../../results/preprocess_1KGP_SNPs/merge_variants_B_stat_mask_1KGP_hub.txt.gz"))
 
-# temp, remove
-merge_variants_B_stat_mask_1KGP_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/merge_variants_B_stat_mask_1KGP_hub.txt.gz"))
+# # temp, remove
+# merge_variants_B_stat_mask_1KGP_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/merge_variants_B_stat_mask_1KGP_hub.txt.gz"))
 
 # add archaic info
 print("add archaic info")

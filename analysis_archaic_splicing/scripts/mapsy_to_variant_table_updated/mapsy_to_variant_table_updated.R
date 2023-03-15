@@ -14,11 +14,28 @@ variant_table <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_va
 # mapsy data
 mapsy_table <- as_tibble(fread("../../../final-postmapsy-archaic-EndToEnd2/results/postprocess_Neanderthal_updated/Neanderthal_updated_variant_sum_exon_construct.txt.gz"))
 
+# add splicing efficiencies
+mapsy_table <- mapsy_table %>% 
+	mutate(naive_log2_splicing_effiency_a_wt = log2((ref_output_readc_a_wt/(sum(ref_output_readc_a_wt) + sum(ref_output_readc_a_mt)))/(ref_input_readc_a_wt/(sum(ref_input_readc_a_wt) + sum(ref_input_readc_a_mt))))) %>% 
+	mutate(naive_log2_splicing_effiency_b_wt = log2((ref_output_readc_b_wt/(sum(ref_output_readc_b_wt) + sum(ref_output_readc_b_mt)))/(ref_input_readc_b_wt/(sum(ref_input_readc_b_wt) + sum(ref_input_readc_b_mt))))) %>% 
+	mutate(naive_log2_splicing_effiency_c_wt = log2((ref_output_readc_c_wt/(sum(ref_output_readc_c_wt) + sum(ref_output_readc_c_mt)))/(ref_input_readc_c_wt/(sum(ref_input_readc_c_wt) + sum(ref_input_readc_c_mt))))) %>% 
+	mutate(naive_log2_splicing_effiency_a_mt = log2((ref_output_readc_a_mt/(sum(ref_output_readc_a_wt) + sum(ref_output_readc_a_mt)))/(ref_input_readc_a_mt/(sum(ref_input_readc_a_wt) + sum(ref_input_readc_a_mt))))) %>% 
+	mutate(naive_log2_splicing_effiency_b_mt = log2((ref_output_readc_b_mt/(sum(ref_output_readc_b_wt) + sum(ref_output_readc_b_mt)))/(ref_input_readc_b_mt/(sum(ref_input_readc_b_wt) + sum(ref_input_readc_b_mt))))) %>% 
+	mutate(naive_log2_splicing_effiency_c_mt = log2((ref_output_readc_c_mt/(sum(ref_output_readc_c_wt) + sum(ref_output_readc_c_mt)))/(ref_input_readc_c_mt/(sum(ref_input_readc_c_wt) + sum(ref_input_readc_c_mt))))) %>% 
+	mutate(naive_log2_splicing_effiency_wt = (naive_log2_splicing_effiency_a_wt+naive_log2_splicing_effiency_b_wt+naive_log2_splicing_effiency_c_wt)/3) %>% 
+	mutate(naive_log2_splicing_effiency_mt = (naive_log2_splicing_effiency_a_mt+naive_log2_splicing_effiency_b_mt+naive_log2_splicing_effiency_c_mt)/3)
+mapsy_table <- mapsy_table[,c(1:46,62:69,47:61)]
+
 # join tables
 mapsy_variant_table <- mapsy_table %>% 
 	mutate(hub_variant_ID=gsub("chr", "", variant_id)) %>% 
 	mutate(hub_variant_ID=gsub(":", "_", hub_variant_ID)) %>% 
 	left_join(variant_table)
+
+# remove nonsense medicated decay variants
+# this was also causing some repeat variants
+mapsy_variant_table <- mapsy_variant_table %>% 
+	filter(exon_transcript_type == "protein_coding")
 
 # filter exon width
 mapsy_variant_table <- mapsy_variant_table %>% 
@@ -129,27 +146,3 @@ plot_save_volcano(NA,
 	"hub_in_final_study_adaptive", 
 	"Adaptively introgressed")
 ggsave("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_volcano_hub_in_final_study_adaptive.pdf", scale=0.4)
-
-plot_save_volcano(5, 
-	mapsy_variant_table,
-	"hub_in_ldvernot_akey_2016", 
-	"Introgressed (Vernot 2016)")
-ggsave("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_volcano_hub_in_vernot_akey_2016.pdf", scale=0.4)
-
-plot_save_volcano(5, 
-	mapsy_variant_table,
-	"hub_in_browning_2018", 
-	"Introgressed (Browning 2018)")
-ggsave("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_volcano_hub_in_browning_2018.pdf", scale=0.4)
-
-plot_save_volcano(NA, 
-	mapsy_variant_table,
-	"hub_in_gittelman_2016", 
-	"Adaptively (Gittelman 2016)")
-ggsave("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_volcano_hub_in_gittelman_2016.pdf", scale=0.4)
-
-plot_save_volcano(NA, 
-	mapsy_variant_table,
-	"hub_in_racimo_2017_AI", 
-	"Adaptively (Racimo 2017)")
-ggsave("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_volcano_hub_in_racimo_2017_AI.pdf", scale=0.4)

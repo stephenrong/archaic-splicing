@@ -5,7 +5,11 @@ library(data.table)
 library(ggpubr)
 library(Hmisc)
 
-final_v2_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+final_v2_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+final_v2_spliceai <- final_v2_spliceai %>% filter(!(hub_variant_CHROM %in% c("chrX")))
+final_v2_spliceai <- final_v2_spliceai %>% filter(!is.na(spliceai_max))  # remove sites where spliceai does not make prediction
+# final_v2_spliceai <- final_v2_spliceai %>% mutate(spliceai_max = ifelse(is.na(spliceai_max), 0, spliceai_max))  # fill in sites where spliceai does not make prediction
+
 gnomad_v2_constraint <- as_tibble(fread("../../data/gnomAD_v2_constraint/gnomad.v2.1.1.lof_metrics.by_gene.txt.gz"))
 
 gnomad_v2_constraint_small <- gnomad_v2_constraint %>% 
@@ -64,7 +68,6 @@ ggbarplot(final_v2_spliceai_constraint_summ %>% filter(!is.na(LOEUF_bin_10)),
 	theme(legend.position = "none") + xlab("LOEUF decile") + ylab("Proportion SpliceAI < 0.01") + 
 	theme(axis.text.x = element_text(angle = 0, vjust = 1, hjust = 1)) + 
 	theme(aspect.ratio=1.5) + 
-	# theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
 ggsave("../../results/additional_analyses_constrained_genes/final_v2_spliceai_constrained_genes_spliceai_ns.pdf", scale=0.5)
 
@@ -77,7 +80,6 @@ ggbarplot(final_v2_spliceai_constraint_summ %>% filter(!is.na(LOEUF_bin_10)),
 	theme(legend.position = "none") + xlab("LOEUF decile") + ylab("Proportion SpliceAI 0.01-0.2") + 
 	theme(axis.text.x = element_text(angle = 0, vjust = 1, hjust = 1)) + 
 	theme(aspect.ratio=1.5) + 
-	# theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
 ggsave("../../results/additional_analyses_constrained_genes/final_v2_spliceai_constrained_genes_spliceai_weak.pdf", scale=0.5)
 
@@ -90,7 +92,6 @@ ggbarplot(final_v2_spliceai_constraint_summ %>% filter(!is.na(LOEUF_bin_10)),
 	theme(legend.position = "none") + xlab("LOEUF decile") + ylab("Proportion SpliceAI 0.2-0.5") + 
 	theme(axis.text.x = element_text(angle = 0, vjust = 1, hjust = 1)) + 
 	theme(aspect.ratio=1.5) + 
-	# theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
 ggsave("../../results/additional_analyses_constrained_genes/final_v2_spliceai_constrained_genes_spliceai_moderate.pdf", scale=0.5)
 
@@ -103,6 +104,5 @@ ggbarplot(final_v2_spliceai_constraint_summ %>% filter(!is.na(LOEUF_bin_10)),
 	theme(legend.position = "none") + xlab("LOEUF decile") + ylab("Proportion SpliceAI >= 0.5") + 
 	theme(axis.text.x = element_text(angle = 0, vjust = 1, hjust = 1)) + 
 	theme(aspect.ratio=1.5) + 
-	# theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
 ggsave("../../results/additional_analyses_constrained_genes/final_v2_spliceai_constrained_genes_spliceai_strong.pdf", scale=0.5)

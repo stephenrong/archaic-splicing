@@ -9,8 +9,10 @@ library(ggpubr)
 library(Hmisc)
 
 # Load tables
-ALL_1KGP_phase3_common_hub_spliceai <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_common_hub_spliceai_gs_raw_dedup.txt.gz")) %>% 
-	filter(!is.na(spliceai_max))
+ALL_1KGP_phase3_common_hub_spliceai <- as_tibble(fread("../../results/annotate_splice_prediction/ALL_1KGP_phase3_common_hub_spliceai_gs_raw_dedup.txt.gz")) %>% filter(!is.na(spliceai_max))
+ALL_1KGP_phase3_common_hub_spliceai <- ALL_1KGP_phase3_common_hub_spliceai %>% filter(!(hub_variant_CHROM %in% c("chrX")))
+ALL_1KGP_phase3_common_hub_spliceai <- ALL_1KGP_phase3_common_hub_spliceai %>% filter(!is.na(spliceai_max))  # remove sites where spliceai does not make prediction
+# ALL_1KGP_phase3_common_hub_spliceai <- ALL_1KGP_phase3_common_hub_spliceai %>% mutate(spliceai_max = ifelse(is.na(spliceai_max), 0, spliceai_max))  # fill in sites where spliceai does not make prediction
 
 # Summarise
 ALL_1KGP_phase3_common_hub_spliceai_small <- ALL_1KGP_phase3_common_hub_spliceai %>% 
@@ -56,7 +58,7 @@ ALL_1KGP_phase3_common_hub_spliceai_summ <- ALL_1KGP_phase3_common_hub_spliceai_
 	ungroup()
 
 # Visualize
-p <- ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop), 
+ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop), 
 	x = "spliceai_pop", y = "spliceai_bin_weak_p", fill="#FFC0CB") + 
 	geom_errorbar(aes(spliceai_pop, 
 		ymin=spliceai_bin_weak_l, 
@@ -67,10 +69,9 @@ p <- ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop
 	theme(aspect.ratio=1.5) + 
 	theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
-p
 ggsave("../../results/additional_analyses_1KGP_SpliceAI_diff/ALL_1KGP_phase3_common_hub_spliceai_summ_weak.pdf", scale=0.55)
 
-p <- ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop), 
+ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop), 
 	x = "spliceai_pop", y = "spliceai_bin_moderate_p", fill="#FFC0CB") + 
 	geom_errorbar(aes(spliceai_pop, 
 		ymin=spliceai_bin_moderate_l, 
@@ -81,10 +82,9 @@ p <- ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop
 	theme(aspect.ratio=1.5) + 
 	theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
-p
 ggsave("../../results/additional_analyses_1KGP_SpliceAI_diff/ALL_1KGP_phase3_common_hub_spliceai_summ_moderate.pdf", scale=0.55)
 
-p <- ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop), 
+ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop), 
 	x = "spliceai_pop", y = "spliceai_bin_strong_p", fill="#FFC0CB") + 
 	geom_errorbar(aes(spliceai_pop, 
 		ymin=spliceai_bin_strong_l, 
@@ -95,5 +95,4 @@ p <- ggbarplot(ALL_1KGP_phase3_common_hub_spliceai_summ %>% arrange(spliceai_pop
 	theme(aspect.ratio=1.5) + 
 	theme(axis.title.x=element_blank()) + 
 	theme(rect = element_rect(fill = "transparent"))
-p
 ggsave("../../results/additional_analyses_1KGP_SpliceAI_diff/ALL_1KGP_phase3_common_hub_spliceai_summ_strong.pdf", scale=0.55)

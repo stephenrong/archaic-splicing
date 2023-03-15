@@ -1,0 +1,3 @@
+#!/bin/sh
+sbatch enrichment_runall_recmap_access_adaptive_GTEx_QTLs_v2.sh
+sbatch enrichment_runall_recmap_access_introgressed_GTEx_QTLs_v2.sh

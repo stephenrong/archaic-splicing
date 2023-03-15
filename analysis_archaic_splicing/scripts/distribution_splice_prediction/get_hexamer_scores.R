@@ -12,15 +12,15 @@ splicing_scores <- as_tibble(fread("../../data/annotate_hexamer_scores/chasin_ro
 splicing_scores_EI <- splicing_scores$Hexamer_EI_Ke_et_al_2011
 splicing_scores_exonicA3SS <- splicing_scores$A3SS_Exonic_Rosenberg_et_al_2015
 splicing_scores_exonicA5SS <- splicing_scores$A5SS_Exonic_Rosenberg_et_al_2015
-splicing_scores_intronicA3SS <- splicing_scores$A3SS_Intronic_Rosenberg_et_al_2015
-splicing_scores_intronicA5SS <- splicing_scores$A5SS_Intronic_Rosenberg_et_al_2015
+# splicing_scores_intronicA3SS <- splicing_scores$A3SS_Intronic_Rosenberg_et_al_2015
+# splicing_scores_intronicA5SS <- splicing_scores$A5SS_Intronic_Rosenberg_et_al_2015
 
 # create lookup table of hexamer scores
 names(splicing_scores_EI) <- splicing_scores$Hexamer
 names(splicing_scores_exonicA3SS) <- splicing_scores$Hexamer
 names(splicing_scores_exonicA5SS) <- splicing_scores$Hexamer
-names(splicing_scores_intronicA3SS) <- splicing_scores$Hexamer
-names(splicing_scores_intronicA5SS) <- splicing_scores$Hexamer
+# names(splicing_scores_intronicA3SS) <- splicing_scores$Hexamer
+# names(splicing_scores_intronicA5SS) <- splicing_scores$Hexamer
 
 # create function that will
 # get elevenmer sequence and compute delta
@@ -90,45 +90,45 @@ get_hexamer_scores <- function(input, ANCDER=FALSE) {
 			splicing_scores_exonicA5SS[[substr(ss_wt_elevenmer, 3, 8)]] + 
 			splicing_scores_exonicA5SS[[substr(ss_wt_elevenmer, 4, 9)]] + 
 			splicing_scores_exonicA5SS[[substr(ss_wt_elevenmer, 5, 10)]] + 
-			splicing_scores_exonicA5SS[[substr(ss_wt_elevenmer, 6, 11)]])/6) %>% 
-		mutate(ss_exonicA5SS = ss_exonicA5SS_mt-ss_exonicA5SS_wt) %>% 
-		mutate(ss_intronicA3SS_mt = 
-			(splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 1, 6)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 2, 7)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 3, 8)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 4, 9)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 5, 10)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 6, 11)]])/6) %>% 
-		mutate(ss_intronicA3SS_wt = 
-			(splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 1, 6)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 2, 7)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 3, 8)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 4, 9)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 5, 10)]] + 
-			splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 6, 11)]])/6) %>% 
-		mutate(ss_intronicA3SS = ss_intronicA3SS_mt-ss_intronicA3SS_wt) %>% 
-		mutate(ss_intronicA5SS_mt = 
-			(splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 1, 6)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 2, 7)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 3, 8)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 4, 9)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 5, 10)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 6, 11)]])/6) %>% 
-		mutate(ss_intronicA5SS_wt = 
-			(splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 1, 6)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 2, 7)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 3, 8)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 4, 9)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 5, 10)]] + 
-			splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 6, 11)]])/6) %>% 
-		mutate(ss_intronicA5SS = ss_intronicA5SS_mt-ss_intronicA5SS_wt) %>% 
+			splicing_scores_exonicA5SS[[substr(ss_wt_elevenmer, 6, 11)]])/6) # %>% 
+		# mutate(ss_exonicA5SS = ss_exonicA5SS_mt-ss_exonicA5SS_wt) %>% 
+		# mutate(ss_intronicA3SS_mt = 
+		# 	(splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 1, 6)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 2, 7)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 3, 8)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 4, 9)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 5, 10)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_mt_elevenmer, 6, 11)]])/6) %>% 
+		# mutate(ss_intronicA3SS_wt = 
+		# 	(splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 1, 6)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 2, 7)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 3, 8)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 4, 9)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 5, 10)]] + 
+		# 	splicing_scores_intronicA3SS[[substr(ss_wt_elevenmer, 6, 11)]])/6) %>% 
+		# mutate(ss_intronicA3SS = ss_intronicA3SS_mt-ss_intronicA3SS_wt) %>% 
+		# mutate(ss_intronicA5SS_mt = 
+		# 	(splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 1, 6)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 2, 7)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 3, 8)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 4, 9)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 5, 10)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_mt_elevenmer, 6, 11)]])/6) %>% 
+		# mutate(ss_intronicA5SS_wt = 
+		# 	(splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 1, 6)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 2, 7)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 3, 8)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 4, 9)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 5, 10)]] + 
+		# 	splicing_scores_intronicA5SS[[substr(ss_wt_elevenmer, 6, 11)]])/6) %>% 
+		# mutate(ss_intronicA5SS = ss_intronicA5SS_mt-ss_intronicA5SS_wt) %>% 
 		ungroup() %>% 
 	# also get absolute values of predicted splicing effect
 		mutate(ss_abs_EI = abs(ss_EI)) %>% 
 		mutate(ss_abs_exonicA3SS = abs(ss_exonicA3SS)) %>% 
-		mutate(ss_abs_exonicA5SS = abs(ss_exonicA5SS)) %>% 
-		mutate(ss_abs_intronicA3SS = abs(ss_intronicA3SS)) %>% 
-		mutate(ss_abs_intronicA5SS = abs(ss_intronicA5SS))
+		mutate(ss_abs_exonicA5SS = abs(ss_exonicA5SS)) # %>% 
+		# mutate(ss_abs_intronicA3SS = abs(ss_intronicA3SS)) %>% 
+		# mutate(ss_abs_intronicA5SS = abs(ss_intronicA5SS))
 
 	# flip if ANCDER
 	if (ANCDER) {
@@ -138,11 +138,11 @@ get_hexamer_scores <- function(input, ANCDER=FALSE) {
 			mutate(ss_exonicA3SS = ifelse(
 				hub_variant_ALT==hub_variant_DER, ss_exonicA3SS, -ss_exonicA3SS)) %>% 
 			mutate(ss_exonicA5SS = ifelse(
-				hub_variant_ALT==hub_variant_DER, ss_exonicA5SS, -ss_exonicA5SS)) %>% 
-			mutate(ss_intronicA3SS = ifelse(
-				hub_variant_ALT==hub_variant_DER, ss_intronicA3SS, -ss_intronicA3SS)) %>% 
-			mutate(ss_intronicA5SS = ifelse(
-				hub_variant_ALT==hub_variant_DER, ss_intronicA5SS, -ss_intronicA5SS))
+				hub_variant_ALT==hub_variant_DER, ss_exonicA5SS, -ss_exonicA5SS)) # %>% 
+			# mutate(ss_intronicA3SS = ifelse(
+			# 	hub_variant_ALT==hub_variant_DER, ss_intronicA3SS, -ss_intronicA3SS)) %>% 
+			# mutate(ss_intronicA5SS = ifelse(
+			# 	hub_variant_ALT==hub_variant_DER, ss_intronicA5SS, -ss_intronicA5SS))
 	}
 	return(temp)
 }

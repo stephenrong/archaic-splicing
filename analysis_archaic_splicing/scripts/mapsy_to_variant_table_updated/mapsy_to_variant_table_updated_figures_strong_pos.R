@@ -9,6 +9,7 @@ library(ggpubr)
 
 # load tables
 mapsy_variant_table <- as_tibble(fread("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table.txt.gz"))
+mapsy_variant_table <- mapsy_variant_table %>% filter(!(exon_seqnames %in% c("chrX")))
 
 # get proportion
 mapsy_proportion <- function(table, column) {
@@ -40,12 +41,14 @@ enrichment_mapsy_figures <- function(list_cols, list_names, output_file, spacer,
 		}
 	}
 	mapsy_proportion_tab$description <- list_names
+	mapsy_proportion_tab <- mapsy_proportion_tab %>% mutate(description = paste0(description, " (n = ", scales::label_comma()(mapsy_total), ")"))
 
 	# add statistical comparison
 	stat_test_pair <- pairwise_fisher_test(mapsy_proportion_tab %>% 
 		dplyr::select(description, mapsy_sig, mapsy_nonsig) %>% 
 		column_to_rownames("description"), detailed=TRUE)
 	stat_test_pair_sig <- stat_test_pair %>% 
+		mutate(p = signif(p, 2)) %>% 
 		filter(p < 0.10)
 		# filter((p < 0.05) | (p == min(p)))
 
@@ -92,6 +95,16 @@ list_names <- c("Modern", "Archaic", "Neanderthal")
 output_file <- "../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_prop_bar_plot_stat_strong_pos-lineage_specific_nodeni.pdf"
 spacer <- 0.01
 scale <- 0.55
+width <- 0.2
+enrichment_mapsy_figures(list_cols, list_names, output_file, spacer, width)
+ggsave(output_file, scale=scale)
+
+# plot - lineage specific
+list_cols <- c("hub_in_final_study_modern", "hub_in_final_study_modern_nearly_0.99", "hub_in_final_study_archaic", "hub_in_final_study_archaic_fixed", "hub_in_final_study_nean", "hub_in_final_study_nean_fixed")
+list_names <- c("Modern (AF >= 0.9)", "Modern (AF >= 0.99)", "Archaic (AF >= 7/8)", "Archaic (AF = 8/8)", "Neanderthal (AF >= 5/6)", "Neanderthal (AF = 6/6)")
+output_file <- "../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_prop_bar_plot_stat_strong_pos-lineage_specific_nodeni-fixed.pdf"
+spacer <- 0.01
+scale <- 0.65  # 0.55
 width <- 0.2
 enrichment_mapsy_figures(list_cols, list_names, output_file, spacer, width)
 ggsave(output_file, scale=scale)

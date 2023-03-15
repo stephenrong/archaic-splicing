@@ -36,39 +36,39 @@ write_tsv(ALL_1KGP_phase3_MAF0.01_hapR2_hub, gzfile("../../results/enrichment_GT
 print("count bins")
 ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_bin <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
 	group_by(EUR_AC_bin) %>% tally()
-ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_hapR2tag_bin <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
-	group_by(EUR_hapR2tag_bin) %>% tally()
+ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_LDtagN_bin <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
+	group_by(EUR_LDtagN_bin) %>% tally()
 
 print("save bins")
 write_tsv(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_bin, "../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_AC_bin.txt")
-write_tsv(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_hapR2tag_bin, "../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_hapR2tag_bin.txt")
+write_tsv(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_LDtagN_bin, "../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_LDtagN_bin.txt")
 
 # create an index
 # 	this will be used 
 print("create index")
 ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_bin_index <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
 	group_by(EUR_AC_bin)  %>% summarise(index = list(index))
-ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_hapR2tag_bin_index <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
-	group_by(EUR_hapR2tag_bin)  %>% summarise(index = list(index))
+ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_LDtagN_bin_index <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
+	group_by(EUR_LDtagN_bin)  %>% summarise(index = list(index))
 
 print("save index")
 saveRDS(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_bin_index, file="../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_AC_bin_index.rds")
-saveRDS(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_hapR2tag_bin_index, file="../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_hapR2tag_bin_index.rds")
+saveRDS(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_LDtagN_bin_index, file="../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_LDtagN_bin_index.rds")
 
 # count cross bins
 # 	this is to check that discretization isn't too fine
 print("count cross bins")
-ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_hapR2tag_bin <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
-	group_by(EUR_AC_bin, EUR_hapR2tag_bin) %>% tally()
+ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_LDtagN_bin <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
+	group_by(EUR_AC_bin, EUR_LDtagN_bin) %>% tally()
 
 print("save bins")
-write_tsv(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_hapR2tag_bin, "../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_AC_binxEUR_hapR2tag_bin.txt")
+write_tsv(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_LDtagN_bin, "../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_AC_binxEUR_LDtagN_bin.txt")
 
 # create an index
 # 	this will be used 
 print("create index")
-ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_hapR2tag_index <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
-	group_by(EUR_AC_bin, EUR_hapR2tag_bin) %>% summarise(index = list(index))
+ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_LDtagN_index <- ALL_1KGP_phase3_MAF0.01_hapR2_hub %>% 
+	group_by(EUR_AC_bin, EUR_LDtagN_bin) %>% summarise(index = list(index))
 
 print("save index")
-saveRDS(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_hapR2tag_index, file="../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_AC_binxEUR_hapR2tag_index.rds")
+saveRDS(ALL_1KGP_phase3_MAF0.01_hapR2_hub_EUR_AC_binxEUR_LDtagN_index, file="../../results/enrichment_GTEx_QTLs_v2/ALL_1KGP_phase3_MAF0.01_hapR2_notAI_hub_EUR_AC_binxEUR_LDtagN_index.rds")

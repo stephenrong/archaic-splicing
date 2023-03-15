@@ -1,6 +1,6 @@
 # Neanderthal MaPSy Manuscript
 
-Updated: 2022-10-18. Contact: Stephen Rong.
+Updated: 2023-03-15. Contact: Stephen Rong.
 
 
 ### Introduction
@@ -21,6 +21,7 @@ This repository contains the scripts for reproducing the analyses, tables, and f
   * enrichment_splice_prediction_gw_raw: Enrichment of SpliceAI proportions.
   * linkage_hapR2_SNPs: LD statistics used for enrichment analyses.
   * mapsy_to_variant_table_updated: Main comparison of proportion figures.
+  * maxentscan_plots: MaxEntScan plots for half exon MaPSy construct validations.
   * preprocess_1KGP_SNPs: Generate final hominin evolution variant sets.
   * preprocess_GTEx_QTLs: Collate GTEx eVariants and sVariants.
   * supplementary_tables: Generate supplementary tables.
@@ -28,24 +29,26 @@ This repository contains the scripts for reproducing the analyses, tables, and f
   * validate_half_exons: Half exon MaPSy construct validations.
   * vep_annotations_SNPs: Ensembl VEP annotations.
   * visualize_genomic_range: Visualizations of individual splicing variants.
+  * get_helper.R: Functions for standardizing variant tables.
 
 **results/**: Contains the result corresponding to scripts subdirectory of same name.
   * additional_analyses_1KGP_SpliceAI_diff
   * additional_analyses_constrained_genes
   * additional_analyses_enrichment_vep_prediction
   * additional_analyses_fine_map_overlap
-  * annotate_splice_prediction: files available at (https://doi.org/10.5281/zenodo.7158564).
+  * annotate_splice_prediction: large files available at (https://doi.org/10.5281/zenodo.7158564).
   * distribution_splice_prediction
-  * enrichment_GTEx_QTLs_v2: files available at (https://doi.org/10.5281/zenodo.7158564).
+  * enrichment_GTEx_QTLs_v2: large files available at (https://doi.org/10.5281/zenodo.7158564).
   * enrichment_splice_prediction_gw_raw
   * linkage_hapR2_SNPs
   * mapsy_to_variant_table_updated
-  * preprocess_1KGP_SNPs: files available at (https://doi.org/10.5281/zenodo.7158564).
+  * maxentscan_plots
+  * preprocess_1KGP_SNPs: large files available at (https://doi.org/10.5281/zenodo.7158564).
   * preprocess_GTEx_QTLs
   * supplementary_tables
   * upset_plot_variants
   * validate_half_exons
-  * vep_annotations_SNPs: files available at (https://doi.org/10.5281/zenodo.7158564).
+  * vep_annotations_SNPs: large files available at (https://doi.org/10.5281/zenodo.7158564).
   * visualize_genomic_range
 
 **data/**: Contains the input data needed for running the scripts.

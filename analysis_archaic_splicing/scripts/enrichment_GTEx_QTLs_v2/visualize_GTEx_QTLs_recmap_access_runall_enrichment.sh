@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# for manuscript
+Rscript visualize_GTEx_QTLs_region_recmap_access_LDtagN_direct_compare_introgressed.R
+Rscript visualize_GTEx_QTLs_region_recmap_access_LDtagN_direct_compare_introgressed_noLDtagN.R
+
+Rscript visualize_GTEx_QTLs_recmap_access_AF_LD_v2.R

@@ -144,6 +144,12 @@ ALL_1KGP_phase3_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1
 ALL_1KGP_phase3_greater0.9_hub <- ALL_1KGP_phase3_hub %>% filter(AF >= 0.9)
 write_tsv(ALL_1KGP_phase3_greater0.9_hub, gzfile("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.9_hub.txt.gz"))
 
+ALL_1KGP_phase3_greater0.5_hub <- ALL_1KGP_phase3_hub %>% filter(AF >= 0.5)
+write_tsv(ALL_1KGP_phase3_greater0.5_hub, gzfile("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.5_hub.txt.gz"))
+
+ALL_1KGP_phase3_greater0.1_hub <- ALL_1KGP_phase3_hub %>% filter(AF >= 0.1)
+write_tsv(ALL_1KGP_phase3_greater0.1_hub, gzfile("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.1_hub.txt.gz"))
+
 ALL_1KGP_phase3_MAF0.01_hub <- ALL_1KGP_phase3_hub %>% filter(EUR_AF >= 0.01, EUR_AF <= 0.99)
 write_tsv(ALL_1KGP_phase3_MAF0.01_hub, gzfile("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_MAF0.01_hub.txt.gz"))
 
@@ -152,6 +158,14 @@ print("table to BED")
 ALL_1KGP_phase3_greater0.9_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.9_hub.txt.gz"))
 ALL_1KGP_phase3_greater0.9_bed <- "../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.9_hub.bed"
 hub_to_bed(ALL_1KGP_phase3_greater0.9_hub, ALL_1KGP_phase3_greater0.9_bed)
+
+ALL_1KGP_phase3_greater0.5_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.5_hub.txt.gz"))
+ALL_1KGP_phase3_greater0.5_bed <- "../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.5_hub.bed"
+hub_to_bed(ALL_1KGP_phase3_greater0.5_hub, ALL_1KGP_phase3_greater0.5_bed)
+
+ALL_1KGP_phase3_greater0.1_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.1_hub.txt.gz"))
+ALL_1KGP_phase3_greater0.1_bed <- "../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_greater0.1_hub.bed"
+hub_to_bed(ALL_1KGP_phase3_greater0.1_hub, ALL_1KGP_phase3_greater0.1_bed)
 
 ALL_1KGP_phase3_MAF0.01_hub <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_MAF0.01_hub.txt.gz"))
 ALL_1KGP_phase3_MAF0.01_bed <- "../../results/preprocess_1KGP_SNPs/ALL_1KGP_phase3_MAF0.01_hub.bed"

@@ -26,7 +26,7 @@ write_tsv(bbj_fine_mapping_SUSIE_final_pip, gzfile("../../results/additional_ana
 bbj_fine_mapping_FINEMAP_final_pip <- read_tsv("../../results/additional_analyses_fine_map_overlap/bbj_fine_mapping_FINEMAP_final_pip.txt.gz") %>% 
 	filter(pip >= 0.1)
 mapsy_variant_table <- as_tibble(fread("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table.txt.gz"))
-final_v2_variants_table <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+final_v2_variants_table <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 
 mapsy_variant_table_finemap_bbj_FINEMAP <- mapsy_variant_table %>% 
 	filter(mpralm.sigvar) %>% 
@@ -50,7 +50,7 @@ write_tsv(final_v2_variants_table_finemap_bbj_FINEMAP_summ, "../../results/addit
 bbj_fine_mapping_SUSIE_final_pip <- read_tsv("../../results/additional_analyses_fine_map_overlap/bbj_fine_mapping_SUSIE_final_pip.txt.gz") %>% 
 	filter(pip >= 0.1)
 mapsy_variant_table <- as_tibble(fread("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table.txt.gz"))
-final_v2_variants_table <- as_tibble(fread("../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
+final_v2_variants_table <- as_tibble(fread("../../results/annotate_splice_prediction/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub_spliceai_gs_raw_dedup.txt.gz"))
 
 mapsy_variant_table_finemap_bbj_SUSIE <- mapsy_variant_table %>% 
 	filter(mpralm.sigvar) %>% 

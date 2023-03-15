@@ -27,23 +27,23 @@ sh preprocess_REFisDER_part1_gnomAD.sh
 # 	Join gnomAD SNP info to REFisDER data
 Rscript preprocess_REFisDER_part2_gnomAD.R
 
-# Add Rinker et al NDA, RAA, RHA SNPs (use 1KGP SNP data to get AC, get B, get mask, convert to hub format, add archaic SNP info, add gnomAD SNP info [convert to BED, tabix gnomAD, join gnomAD])
-Rscript preprocess_Rinker_et_al.R
-# 	Tabix gnomAD SNPs based on archaic SNP to BED
-sh preprocess_Rinker_et_al_part1_gnomAD.sh
-# 	Join gnomAD SNP info to Rinker et al NDA, RAA, RHA data
-Rscript preprocess_Rinker_et_al_part2_gnomAD.R
-
 # Preprocess 1KGP greater 0.9
 # 	Tabix gnomAD SNPs based on archaic SNP to BED
 sh preprocess_ALL_1KGP_phase3_greater0.9_part1_gnomAD.sh
 # 	Join gnomAD SNP info to archaic data
 Rscript preprocess_ALL_1KGP_phase3_greater0.9_part2_gnomAD.R
 
-# Reprocess to get updated lineage-specific variants and combine with old library data
-Rscript preprocess_lineage.R
+# Preprocess 1KGP greater 0.5
+# 	Tabix gnomAD SNPs based on archaic SNP to BED
+sh preprocess_ALL_1KGP_phase3_greater0.5_part1_gnomAD.sh
+# 	Join gnomAD SNP info to archaic data
+Rscript preprocess_ALL_1KGP_phase3_greater0.5_part2_gnomAD.R
 
-# 	Append Rinker et al NDA, RAA, RHA SNPs to final
-Rscript preprocess_Rinker_et_al_append_final.R
-# Add annotations of introgressed DER or ANC
-Rscript annotate_introgr_derived_or_ancestral.R
+# Reprocess to get updated lineage-specific variants and combine with old library data
+Rscript preprocess_lineage_part1.R
+# 	Join individual files together
+Rscript preprocess_lineage_part2.R
+
+# Don't append Rinker et al NDA, RAA, RHA SNPs to final
+Rscript preprocess_lineage_part3.R
+cp ../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_hub.txt.gz ../../results/preprocess_1KGP_SNPs/final_v2_variants_B_stat_mask_1KGP_archaic_gnomAD_introgr_hub.txt.gz
