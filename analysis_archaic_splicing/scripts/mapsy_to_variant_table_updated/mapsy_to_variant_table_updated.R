@@ -54,6 +54,19 @@ mapsy_variant_table <- mapsy_variant_table %>%
 	dplyr::select(!starts_with("hub_"), starts_with("hub_"))
 
 # remove variants with ambiguous anc/der polarization
+mapsy_variant_table_no_QC_filter <- mapsy_variant_table %>% 
+	filter(hub_variant_CASE!=3)
+
+# get sequences
+fasta_table <- as_tibble(fread("../../../final-postmapsy-archaic-EndToEnd2/data/custom_reference/neanderthal_updated_table.txt.gz"))
+fasta_table <- fasta_table %>% dplyr::select(source, construct_type, starts_with("exon_"), starts_with("variant_"), Common_id_three, Common_id_five, Common_five, Common_three, Sub_library, Order_assign, Primer_pair_new, Primer_5_prime, Primer_3_prime, Order_final_id_wt, Order_final_id_mt, Order_debug_sequence_wt, Order_debug_sequence_mt, Order_final_sequence_wt, Order_final_sequence_mt, Order_length_wt, Order_length_mt)
+mapsy_variant_table_no_QC_filter <- mapsy_variant_table_no_QC_filter %>% left_join(fasta_table)
+
+# save tables
+write_tsv(mapsy_variant_table_no_QC_filter, 
+	gzfile("../../results/mapsy_to_variant_table_updated/Neanderthal_updated_mapsy_to_variant_table_no_QC_filter.txt.gz"))
+
+# remove variants without mpralm value
 mapsy_variant_table <- mapsy_variant_table %>% 
 	filter(!is.na(mpralm.ANCDER.logFC))
 

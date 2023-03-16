@@ -65,4 +65,4 @@ This repository contains the scripts for reproducing the analyses, tables, and f
 
 ### Dependencies
 
-R (version 4.0.2), with packages: tidyverse (1.3.1), data.table (1.14.2), plyranges (1.8.0), wrapr (2.0.9), vcfR (1.12.0), rtracklayer (1.48.0), EnsDb.Hsapiens.v86 (2.99.0), ggpubr (0.4.0), Hmisc (4.6-0), rstatix (0.7.0), MetBrewer (0.2.0), BSgenome.Hsapiens.UCSC.hg19 (1.4.3), BSgenome.Hsapiens.UCSC.hg38 (1.4.3), UpSetR (1.4.0), optparse (1.7.1), gtools (3.9.2), ggrepel (0.9.1), ggbio (1.36.0), viridis (0.6.2), Gviz (1.32.0), erma (1.4.0). Other software: ensembl-vep (107), htslib (1.10.2), CrossMap (0.5.4).
+R (version 4.0.2), with packages: tidyverse (1.3.1), data.table (1.14.2), plyranges (1.8.0), wrapr (2.0.9), vcfR (1.12.0), rtracklayer (1.48.0), EnsDb.Hsapiens.v86 (2.99.0), ggpubr (0.4.0), Hmisc (4.6-0), rstatix (0.7.0), MetBrewer (0.2.0), BSgenome.Hsapiens.UCSC.hg19 (1.4.3), BSgenome.Hsapiens.UCSC.hg38 (1.4.3), UpSetR (1.4.0), optparse (1.7.1), gtools (3.9.2), ggrepel (0.9.1), ggbio (1.36.0), viridis (0.6.2), Gviz (1.32.0), erma (1.4.0), VarCon (1.6.0). Other software: ensembl-vep (107), htslib (1.10.2), CrossMap (0.5.4).
