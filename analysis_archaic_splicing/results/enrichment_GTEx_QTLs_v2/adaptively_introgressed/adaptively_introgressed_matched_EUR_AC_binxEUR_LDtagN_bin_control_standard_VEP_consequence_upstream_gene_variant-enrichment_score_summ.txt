@@ -1,0 +1,2 @@
+mean_enrichment	sd_enrichment
+-0.2563006669587553	0.09462008467479177
