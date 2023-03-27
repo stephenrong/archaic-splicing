@@ -7,6 +7,10 @@ win_half_size_splice=NA
 win_half_size_seq=10
 out_folder="../../results/visualize_genomic_range/"
 
+vis_variant_id="10_64575360_C/G"
+print(vis_variant_id)
+visualize_genomic_range_mapsyless(vis_variant_id, win_half_size_gtex, win_half_size_splice, win_half_size_seq, out_folder)
+
 vis_variant_id="12_52946336_A/G"
 print(vis_variant_id)
 visualize_genomic_range_mapsyless(vis_variant_id, win_half_size_gtex, win_half_size_splice, win_half_size_seq, out_folder)
