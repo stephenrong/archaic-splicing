@@ -110,7 +110,7 @@ supplement_mapsy_results_merged_lineage <- supplement_mapsy_results_merged %>%
 	filter(main_in_final_study_modern|main_in_final_study_archaic|main_in_final_study_nean|main_in_final_study_deni|main_in_final_study_introgressed|main_in_final_study_adaptive) %>% 
 	filter(!main_in_final_study_introgressed, !main_in_final_study_adaptive) %>% 
 	filter(is.na(`1KGP_AF`), is.na(gnomAD_AF)) %>% 
-	filter(mpralm.sigvar, SpliceAI_max>=0.2) %>% 
+	filter(mpralm.sigvar, SpliceAI_max>=0.1) %>% 
 	arrange(mpralm.ANCDER.logFC) %>% 
 	mutate(`MaPSy_strong_+_SpliceAI>=0.2` = ifelse(mpralm.sigclass=="strong" & SpliceAI_max>=0.2, TRUE, FALSE)) %>% 
 	arrange(`MaPSy_strong_+_SpliceAI>=0.2`)
