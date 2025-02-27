@@ -15,3 +15,8 @@ This repository contains the custom scripts for the manuscript titled "Large sca
 **mapsy_seq_pipeline/**: This repository contains scripts for analyzing NGS data from the Neanderthal MaPSy experiments.
 
 **analysis_archaic_splicing/**: This repository contains the scripts for reproducing the analyses, tables, and figures in the manuscript.
+
+
+### Dependencies
+
+See subfolder READMEs.
